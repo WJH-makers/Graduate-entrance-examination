@@ -1,0 +1,1435 @@
+export const englishKnowledge = [
+  {
+    "id": "e1",
+    "category": "Grammar",
+    "subcategory": "Clauses",
+    "title": "定语从句",
+    "difficulty": "Medium",
+    "importance": 5,
+    "tags": [
+      "语法",
+      "从句",
+      "定语"
+    ],
+    "content": "限制性与非限制性定语从句，关系代词/副词的选择。",
+    "classicProblems": [
+      {
+        "title": "介词+which",
+        "description": "The house ___ which I live.",
+        "solution": "in"
+      }
+    ],
+    "detailedAnalysis": "定语从句修饰先行词。注意“介词+which”结构中介词的选择取决于先行词或从句谓语动词的搭配。",
+    "examTips": [
+      "which 指物，who 指人，that 可指人或物（限制性）。",
+      "as 引导非限制性定语从句可置于句首。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e2",
+    "category": "Grammar",
+    "subcategory": "Clauses",
+    "title": "名词性从句",
+    "difficulty": "High",
+    "importance": 4,
+    "tags": [
+      "语法",
+      "从句",
+      "名词性"
+    ],
+    "content": "主语从句、宾语从句、表语从句、同位语从句。",
+    "classicProblems": [
+      {
+        "title": "同位语 vs 定语",
+        "description": "The news that he came surprised us. (that 是什么成分？)",
+        "solution": "同位语从句引导词（不充当成分）。"
+      }
+    ],
+    "detailedAnalysis": "名词性从句在句中起名词作用。",
+    "examTips": [
+      "what 在从句中必须充当成分，that 不充当成分。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e3",
+    "category": "Grammar",
+    "subcategory": "Special Structures",
+    "title": "虚拟语气",
+    "difficulty": "High",
+    "importance": 3,
+    "tags": [
+      "语法",
+      "虚拟语气"
+    ],
+    "content": "if 条件句，wish/suggest 等词后的虚拟。",
+    "classicProblems": [
+      {
+        "title": "错综时间",
+        "description": "If I had worked hard yesterday, I would be tired now.",
+        "solution": "从句过去完成，主句过去将来。"
+      }
+    ],
+    "detailedAnalysis": "虚拟语气表示假设或愿望。",
+    "examTips": [
+      "suggest, demand, order 等词后接 that 从句用 (should) + do。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e31",
+    "category": "Reading",
+    "subcategory": "Question Types",
+    "title": "是非判断题 (Not True)",
+    "difficulty": "High",
+    "importance": 5,
+    "content": "Which of the following is NOT true? 排除法，定位原文。",
+    "classicProblems": [
+      {
+        "title": "干扰项特征",
+        "description": "常见的错误选项特征？",
+        "solution": "无中生有，张冠李戴，因果倒置，绝对化。"
+      }
+    ],
+    "detailedAnalysis": "此类题目通常需要验证四个选项。策略：先看选项，划出关键词，回文定位。",
+    "examTips": [
+      "选项中含有 absolute, never, must 等绝对词的往往是错误的（即正确答案）。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e10",
+    "category": "Reading",
+    "subcategory": "Question Types",
+    "title": "主旨大意题",
+    "difficulty": "Medium",
+    "importance": 5,
+    "tags": [
+      "阅读",
+      "主旨"
+    ],
+    "content": "寻找文章中心思想 (Main Idea)。",
+    "classicProblems": [
+      {
+        "title": "解题位置",
+        "description": "主旨题通常看哪里？",
+        "solution": "首段首末句，各段首句，全文末句。"
+      }
+    ],
+    "detailedAnalysis": "主旨题考查宏观理解能力。",
+    "examTips": [
+      "避免“以偏概全”的选项。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e29",
+    "category": "Writing",
+    "subcategory": "Part A (Letters)",
+    "title": "推荐信",
+    "difficulty": "Medium",
+    "importance": 4,
+    "content": "推荐书籍、电影、景点。结构：写作目的 -> 推荐对象及理由 -> 期待反馈。",
+    "classicProblems": [
+      {
+        "title": "推荐理由",
+        "description": "如何表达“值得一读”？",
+        "solution": "It is a masterpiece that is well worth reading."
+      }
+    ],
+    "detailedAnalysis": "推荐信要热情真诚。",
+    "examTips": [
+      "理由要具体（如：内容丰富、语言优美、实用性强）。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e30",
+    "category": "Writing",
+    "subcategory": "Part A (Letters)",
+    "title": "道歉信",
+    "difficulty": "Medium",
+    "importance": 4,
+    "content": "因故不能赴约、弄丢借物、延迟归还。结构：道歉 -> 解释原因 -> 补救措施。",
+    "classicProblems": [
+      {
+        "title": "表达歉意",
+        "description": "最诚挚的道歉？",
+        "solution": "I am writing to express my sincerest apologies for..."
+      }
+    ],
+    "detailedAnalysis": "道歉信语气要诚恳。原因解释要合理。",
+    "examTips": [
+      "补救措施是得分点。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e20",
+    "category": "Writing",
+    "subcategory": "Part B (Essay)",
+    "title": "图画作文",
+    "difficulty": "High",
+    "importance": 5,
+    "tags": [
+      "写作",
+      "大作文"
+    ],
+    "content": "描述图画 -> 阐释寓意 -> 评论/建议。",
+    "classicProblems": [
+      {
+        "title": "描述句型",
+        "description": "如图所示...",
+        "solution": "As is vividly depicted in the cartoon..."
+      }
+    ],
+    "detailedAnalysis": "图画作文重点在于准确描述图画并引申出深层含义。",
+    "examTips": [
+      "三段式结构：描述段、分析段、评论段。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e28",
+    "category": "Translation",
+    "subcategory": "Techniques",
+    "title": "比较结构翻译",
+    "difficulty": "High",
+    "importance": 5,
+    "content": "as...as, more than, no more than, not so much as。",
+    "classicProblems": [
+      {
+        "title": "比较级否定",
+        "description": "He is no more a scholar than I am.",
+        "solution": "他和我一样都不是学者。（no more...than... 表示“两者都不”）"
+      }
+    ],
+    "detailedAnalysis": "比较结构是翻译难点。A is no more B than C is D (A和C一样不B)。",
+    "examTips": [
+      "no more than = only (仅仅)，not more than = at most (至多)。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e4",
+    "category": "Grammar",
+    "subcategory": "Inversion",
+    "title": "倒装句",
+    "difficulty": "High",
+    "importance": 4,
+    "tags": [
+      "语法",
+      "倒装"
+    ],
+    "content": "完全倒装（地点状语置于句首），部分倒装（否定词置于句首）。",
+    "classicProblems": [
+      {
+        "title": "否定词倒装",
+        "description": "Not only ___ interested in football but ___ beginning to show an interest in it.",
+        "solution": "is he; he is (前倒后不倒)。"
+      }
+    ],
+    "detailedAnalysis": "倒装是为了强调或平衡句子结构。部分倒装只把助动词/情态动词/be动词提到主语前。",
+    "examTips": [
+      "Only + 状语置于句首，主句要倒装。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e5",
+    "category": "Grammar",
+    "subcategory": "Non-finite Verbs",
+    "title": "非谓语动词",
+    "difficulty": "High",
+    "importance": 5,
+    "tags": [
+      "语法",
+      "非谓语"
+    ],
+    "content": "不定式 (to do)，动名词 (doing)，分词 (doing/done)。",
+    "classicProblems": [
+      {
+        "title": "做状语",
+        "description": "___ from the top of the hill, the city looks beautiful.",
+        "solution": "Seen (逻辑主语是 city，被看)。"
+      }
+    ],
+    "detailedAnalysis": "非谓语动词不做谓语，但保留动词特征。逻辑主语的一致性是解题关键。",
+    "examTips": [
+      "独立主格结构：逻辑主语与主句主语不一致时使用。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e32",
+    "category": "Writing",
+    "subcategory": "Part A (Letters)",
+    "title": "通知 (Notice)",
+    "difficulty": "Medium",
+    "importance": 4,
+    "tags": [
+      "写作",
+      "通知"
+    ],
+    "content": "标题，正文（时间、地点、事件、参加人），落款。",
+    "classicProblems": [
+      {
+        "title": "格式要求",
+        "description": "通知的标题通常怎么写？",
+        "solution": "NOTICE (居中，大写)。"
+      }
+    ],
+    "detailedAnalysis": "通知属于事务性文体，语言要简洁准确。",
+    "examTips": [
+      "注意时态通常用将来时。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e40",
+    "category": "Reading",
+    "subcategory": "Question Types",
+    "title": "推理判断题 (Inference)",
+    "difficulty": "High",
+    "importance": 5,
+    "tags": [
+      "阅读",
+      "推理"
+    ],
+    "content": "infer, imply, suggest, learn from。",
+    "classicProblems": [
+      {
+        "title": "解题原则",
+        "description": "推理题的正确选项特征？",
+        "solution": "同义改写，逻辑推导（非过度推导）。"
+      }
+    ],
+    "detailedAnalysis": "推理题考查对文章隐含信息的理解。切忌主观臆断。",
+    "examTips": [
+      "照抄原文的选项通常是错误的。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e45",
+    "category": "Translation",
+    "subcategory": "Techniques",
+    "title": "被动语态翻译",
+    "difficulty": "Medium",
+    "importance": 5,
+    "tags": [
+      "翻译",
+      "被动语态"
+    ],
+    "content": "译成汉语的主动句（无主句、泛指人称），或保留被动（“被”、“受”、“由”）。",
+    "classicProblems": [
+      {
+        "title": "It 做形式主语",
+        "description": "It is suggested that...",
+        "solution": "有人建议... / 据建议...（译成无主句或泛指）。"
+      }
+    ],
+    "detailedAnalysis": "英语多被动，汉语多主动。翻译时需灵活转换。",
+    "examTips": [
+      "It is said/reported/believed... 固定句型需熟练掌握。"
+    ],
+    "frequency": 5
+  },
+  {
+    "id": "e50",
+    "category": "Writing",
+    "subcategory": "Part A (Letters)",
+    "title": "备忘录 (Memo)",
+    "difficulty": "Medium",
+    "importance": 3,
+    "tags": [
+      "写作",
+      "备忘录"
+    ],
+    "content": "Date, To, From, Subject。",
+    "classicProblems": [
+      {
+        "title": "格式",
+        "description": "Memo 的开头四要素？",
+        "solution": "Date, To, From, Subject (DTFS)。"
+      }
+    ],
+    "detailedAnalysis": "备忘录通常用于公司内部交流，格式较正式信函简单。",
+    "examTips": [
+      "不需要称呼 (Dear...) 和落款 (Sincerely...)。"
+    ],
+    "frequency": 3
+  },
+  {
+    "id": "e41",
+    "category": "Reading",
+    "subcategory": "Main Idea",
+    "title": "主旨与态度题",
+    "difficulty": "High",
+    "importance": 5,
+    "frequency": 10,
+    "tags": [
+      "reading",
+      "main idea"
+    ],
+    "content": "首尾段与主题句定位；关注反复词与转折标记；态度词汇表（neutral/cautious/critical）。",
+    "classicProblems": [
+      {
+        "title": "标题选择",
+        "description": "选出 2019 Text 3 主旨标题",
+        "solution": "定位首段主题句与反复词 innovation/entrepreneurship，排除过窄/过宽选项。"
+      }
+    ],
+    "detailedAnalysis": "主旨题先定话题再定立场；态度题抓评价性形容词与情感色彩。绝对化选项常为干扰。",
+    "examTips": [
+      "排除“only/always”等绝对词；对比项要看作者倾向。"
+    ]
+  },
+  {
+    "id": "e42",
+    "category": "Writing",
+    "subcategory": "Argument",
+    "title": "大作文三段论模板",
+    "difficulty": "Medium",
+    "importance": 5,
+    "frequency": 10,
+    "tags": [
+      "writing",
+      "template"
+    ],
+    "content": "开头释题+立场；主体两段 PEEL（Point-Example-Explain-Link）；结尾重申立场并给出建议/前瞻。",
+    "classicProblems": [
+      {
+        "title": "科技与隐私",
+        "description": "图表涉及隐私保护，要求提出看法",
+        "solution": "开头 paraphrase 图意；主体举 GDPR/企业自律案例；结尾呼吁立法+个人防护。"
+      }
+    ],
+    "detailedAnalysis": "考官看逻辑与展开深度。三段论能保底结构，亮点在例证具体与衔接自然。",
+    "examTips": [
+      "每段 1 句主题 + 2-3 句论据；连接词比堆难词更有效。"
+    ]
+  },
+  {
+    "id": "e43",
+    "category": "Grammar",
+    "subcategory": "Complex Sentences",
+    "title": "长定语/同位语从句拆分翻译",
+    "difficulty": "High",
+    "importance": 4,
+    "frequency": 9,
+    "tags": [
+      "translation",
+      "clause"
+    ],
+    "content": "先找先行词，再找关系词；同位语从句 that 不作成分；按“主-谓-修饰”重组以顺译或分译。",
+    "classicProblems": [
+      {
+        "title": "重写与翻译",
+        "description": "The proposal that he made yesterday...",
+        "solution": "判断 that 引导同位语，从句整体作同位语，译为“他昨天提出的那个提案”。"
+      }
+    ],
+    "detailedAnalysis": "长从句是阅读与翻译的堵点。断开谓语、分层修饰可降低难度；同位语从句不作句子成分，是常考陷阱。",
+    "examTips": [
+      "遇长句先断谓语；关系词若在介词后，多为非限制性结构。"
+    ]
+  },
+  {
+    "id": "e44",
+    "category": "Reading",
+    "subcategory": "Vocabulary in Context",
+    "title": "词汇推断与同义改写",
+    "difficulty": "Medium",
+    "importance": 5,
+    "frequency": 9,
+    "tags": [
+      "reading",
+      "vocabulary"
+    ],
+    "content": "利用定义/同位语/转折/因果线索推断生词；选项常为同义改写或语义场相近词。",
+    "classicProblems": [
+      {
+        "title": "语境锁定",
+        "description": "根据“but/yet/however”后语气取反推断词义",
+        "solution": "若转折后为负面，转折前多为正面，反之亦然。"
+      }
+    ],
+    "mistakes": [
+      "只看词面不看语境",
+      "忽略词性一致性"
+    ],
+    "detailedAnalysis": "词汇题实质是语义关系匹配；上下文信号（转折、因果、举例）比单词本身更重要。",
+    "examTips": [
+      "先定词性，再定褒贬；排除生僻但语义不合的选项。"
+    ]
+  },
+  {
+    "id": "e45",
+    "category": "Writing",
+    "subcategory": "Cohesion",
+    "title": "连接词与段落衔接",
+    "difficulty": "Low",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "writing",
+      "cohesion"
+    ],
+    "content": "并列 and/also; 递进 moreover/furthermore; 转折 however/nevertheless; 因果 therefore/hence; 举例 for example;",
+    "classicProblems": [
+      {
+        "title": "衔接改错",
+        "description": "在学术写作中替换口语化连接词",
+        "solution": "用 moreover/in addition 替换 and/besides 等口语化表达。"
+      }
+    ],
+    "mistakes": [
+      "滥用 so/but 导致口语化",
+      "句首 however 后遗漏逗号"
+    ],
+    "detailedAnalysis": "连接词是作文流畅度关键；同一功能词尽量多样化避免重复。",
+    "examTips": [
+      "每段控制 1-2 个连接词；保持语气正式。"
+    ]
+  },
+  {
+    "id": "e46",
+    "category": "Writing",
+    "subcategory": "Part B (Essay)",
+    "title": "对比与让步结构",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "writing",
+      "structure"
+    ],
+    "content": "对比 while/whereas; 让步 although/even though/whereas; 让步+转折：Although..., ... still...",
+    "classicProblems": [
+      {
+        "title": "句式升级",
+        "description": "把简单转折句升级为让步+转折复合句",
+        "solution": "Although challenges exist, the benefits still outweigh the risks."
+      }
+    ],
+    "mistakes": [
+      "让步从句与主句时态不一致",
+      "把 however 与 although 并用"
+    ],
+    "detailedAnalysis": "对比/让步能提升论证层次；注意主从语序与逗号位置。",
+    "examTips": [
+      "让步从句置前时主句要有逗号；避免重复使用 but。"
+    ]
+  },
+  {
+    "id": "e47",
+    "category": "Grammar",
+    "subcategory": "Tense & Aspect",
+    "title": "时态一致与虚拟混用",
+    "difficulty": "High",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "tense",
+      "aspect",
+      "虚拟"
+    ],
+    "content": "叙述过去事实用一般过去；与现在结果相关用现在完成；与条件/假设混用需注意主从一致与时态后移。",
+    "classicProblems": [
+      {
+        "title": "时态后移",
+        "description": "He said that he ___ (be) busy the next day.",
+        "solution": "would be（间接引语时态后移）。"
+      }
+    ],
+    "mistakes": [
+      "虚拟条件句与间接引语叠加时态错位",
+      "现在完成进行时少见但可考"
+    ],
+    "detailedAnalysis": "考研写作常需在过去背景下提出当前建议，时态切换要平滑；阅读中时态信号帮助梳理时间线。",
+    "examTips": [
+      "检查主句时态后再确定从句；时间状语 next day/ago/so far 提示所用时态。"
+    ]
+  },
+  {
+    "id": "e48",
+    "category": "Vocabulary",
+    "subcategory": "熟词僻义",
+    "title": "bill 不只是账单：法案/鸟嘴",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 9,
+    "tags": [
+      "熟词僻义",
+      "名词",
+      "真题例句"
+    ],
+    "content": "bill 既可指账单，也指“法案”；作名词还可指鸟嘴。真题常在政治/经济语境考“法案”。",
+    "classicProblems": [
+      {
+        "title": "真题例句",
+        "description": "The bill was passed with a slim majority.",
+        "solution": "bill=法案，而非“账单”。"
+      }
+    ],
+    "pastExams": [
+      {
+        "year": "2021",
+        "question": "阅读A 段出现 bill，问其含义",
+        "answer": "法案/议案"
+      }
+    ],
+    "examTips": [
+      "与 vote/adopt/pass/sign 同现时多为“法案”。"
+    ]
+  },
+  {
+    "id": "e49",
+    "category": "Vocabulary",
+    "subcategory": "搭配",
+    "title": "impose on / subject to / be prone to",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 10,
+    "tags": [
+      "短语",
+      "搭配",
+      "政府经济"
+    ],
+    "content": "impose on 征收/强加；subject to 使服从/受制于；be prone to 易于（多接不良结果）。",
+    "classicProblems": [
+      {
+        "title": "短语辨析",
+        "description": "The new tariff is imposed on imported steel, which is subject to further review.",
+        "solution": "imposed on=征收；subject to=可能被进一步审查。"
+      }
+    ],
+    "mistakes": [
+      "把 impose on 误作“依赖”",
+      "subject to 与 be subjected to 混淆"
+    ],
+    "examTips": [
+      "政府/政策语境高频；写作可用 be prone to+风险，subject to+限制。"
+    ]
+  },
+  {
+    "id": "e50",
+    "category": "Vocabulary",
+    "subcategory": "混淆词",
+    "title": "adapt / adopt / adept",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 9,
+    "tags": [
+      "混淆词",
+      "拼写相似"
+    ],
+    "content": "adapt 适应/改编；adopt 采用/收养；adept 熟练的。拼写和词性都不同。",
+    "classicProblems": [
+      {
+        "title": "选择填空",
+        "description": "Firms must ___ their strategy to changing demand while remaining ___ at execution.",
+        "solution": "adapt；adept。"
+      }
+    ],
+    "mistakes": [
+      "adopt 与 adapt 混用",
+      "adept 作动词误用"
+    ],
+    "examTips": [
+      "“采纳政策”用 adopt，“适应环境”用 adapt，“熟练”用 adept。"
+    ]
+  },
+  {
+    "id": "e51",
+    "category": "Reading",
+    "subcategory": "主旨定位",
+    "title": "主题句识别与同义替换",
+    "difficulty": "Medium",
+    "importance": 5,
+    "frequency": 10,
+    "tags": [
+      "阅读",
+      "主旨",
+      "同义替换"
+    ],
+    "content": "首段首句/末句常为中心；转折后往往藏主旨；考题爱用同义替换遮蔽关键词。",
+    "classicProblems": [
+      {
+        "title": "真题套路",
+        "description": "2019 阅读A 问主旨，文章用 “undermine” 替换题干的 “weaken”。",
+        "solution": "抓转折 however；同义替换 weaken→undermine。"
+      }
+    ],
+    "examTips": [
+      "先圈转折/因果信号；选项里找同义而非原词。"
+    ]
+  },
+  {
+    "id": "e52",
+    "category": "Writing",
+    "subcategory": "功能句式",
+    "title": "因果/让步/转折高分句模板",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "写作",
+      "句型",
+      "衔接"
+    ],
+    "content": "因果：It is widely acknowledged that A, which in turn leads to B. 让步：Granted that..., it does not follow that.... 转折：While A holds true, B deserves equal attention.",
+    "classicProblems": [
+      {
+        "title": "套用示例",
+        "description": "说明科技进步带来隐私问题",
+        "solution": "It is widely recognized that technological advances boost efficiency, which in turn gives rise to mounting concerns over privacy."
+      }
+    ],
+    "examTips": [
+      "模板要换词：acknowledged→recognized；leads to→gives rise to，避免千篇一律。"
+    ]
+  },
+  {
+    "id": "e53",
+    "category": "Grammar",
+    "subcategory": "从句",
+    "title": "同位语从句 vs 定语从句",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "从句",
+      "同位语",
+      "定语"
+    ],
+    "content": "同位语从句解释抽象名词内容（fact/idea/news），不用作先行词成分；定语从句修饰名词，可用 that/which/who。",
+    "classicProblems": [
+      {
+        "title": "辨析",
+        "description": "The news that the price would rise surprised everyone.",
+        "solution": "that 引导同位语从句，解释 news 内容；不可换 which。"
+      }
+    ],
+    "mistakes": [
+      "把同位语从句误拆为“news + 定语从句”"
+    ],
+    "examTips": [
+      "先行词为抽象名词且从句表其内容，多为同位语从句。"
+    ]
+  },
+  {
+    "id": "e54",
+    "category": "Vocabulary",
+    "subcategory": "真题例句",
+    "title": "subject to 的真题用法",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 7,
+    "tags": [
+      "短语",
+      "真题"
+    ],
+    "content": "subject to 可表“可能受…影响/约束/以…为条件”。真题常出现于合同、法规语境。",
+    "pastExams": [
+      {
+        "year": "2020",
+        "question": "阅读C：Research funding is subject to annual review.",
+        "answer": "受年度审查/取决于年度审查。"
+      }
+    ],
+    "classicProblems": [
+      {
+        "title": "翻译",
+        "description": "All bookings are subject to availability.",
+        "solution": "所有预订须视供应情况而定。"
+      }
+    ],
+    "examTips": [
+      "后接名词多为“受制于/取决于”；接 -ing 时常译“可能发生/遭受”。"
+    ]
+  },
+  {
+    "id": "e55",
+    "category": "Reading",
+    "subcategory": "衔接与指代",
+    "title": "指代词回指与同义替换",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 9,
+    "tags": [
+      "阅读",
+      "指代",
+      "同义替换"
+    ],
+    "content": "it/they/this/that/these/those 常指回上一句的名词短语或整句含义；真题喜欢用同义改写遮蔽原词。",
+    "classicProblems": [
+      {
+        "title": "真题指代",
+        "description": "2018 阅读B：this phenomenon 指代前文“job polarization”。",
+        "solution": "替换回原词后再判断选项。"
+      }
+    ],
+    "examTips": [
+      "遇指代先定位最近名词短语，不通再看整句概念；同义替换是出题常规。"
+    ]
+  },
+  {
+    "id": "e56",
+    "category": "Vocabulary",
+    "subcategory": "熟词僻义",
+    "title": "table 作动词/名词的不同义",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 8,
+    "tags": [
+      "熟词僻义",
+      "真题例句"
+    ],
+    "content": "table 名词=表格/议案；动词在美式“提交讨论”在英式“搁置”。语境判定关键。",
+    "classicProblems": [
+      {
+        "title": "真题例句",
+        "description": "The proposal was tabled after heated debate.",
+        "solution": "英式语境=搁置；美式=提交，需看上下文。"
+      }
+    ],
+    "memoryTips": [
+      "看到 table + proposal 需警惕语境；美议会=提交，英议会=搁置。"
+    ],
+    "prediction": {
+      "topic": "完形/阅读语义陷阱",
+      "pattern": "同一词不同义",
+      "prob": 0.42
+    }
+  },
+  {
+    "id": "e57",
+    "category": "Reading",
+    "subcategory": "逻辑标记",
+    "title": "转折/让步信号与解题",
+    "difficulty": "Medium",
+    "importance": 5,
+    "frequency": 10,
+    "tags": [
+      "阅读",
+      "转折",
+      "让步"
+    ],
+    "content": "转折后多藏主旨；让步后往往引出真正立场。but/however/yet/while, although/even though/whereas。",
+    "classicProblems": [
+      {
+        "title": "主旨定位",
+        "description": "段落以 However 开头，后文转向批评自动驾驶风险，问段落主旨",
+        "solution": "主旨在转折后“批评风险”。"
+      }
+    ],
+    "memoryTips": [
+      "圈出转折/让步词，后面加重读；选择题优先看转折后的表述。"
+    ],
+    "prediction": {
+      "topic": "阅读主旨题",
+      "pattern": "转折后主旨，同义替换误导",
+      "prob": 0.56
+    }
+  },
+  {
+    "id": "e58",
+    "category": "Writing",
+    "subcategory": "图表作文",
+    "title": "图表描述句型与衔接",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 9,
+    "tags": [
+      "写作",
+      "图表",
+      "句型"
+    ],
+    "content": "开头：The chart illustrates... 上升：increase/climb/surge；下降：decline/drop/plunge；拐点：plateau/rebound。",
+    "classicProblems": [
+      {
+        "title": "句型套用",
+        "description": "描述 2015-2024 电商规模翻倍",
+        "solution": "The market size surged from ... to ..., nearly doubling over the decade."
+      }
+    ],
+    "memoryTips": [
+      "准备上升/下降/波动三组同义词；用 by/to 区分增量/终值；结尾给趋势判断。"
+    ],
+    "prediction": {
+      "topic": "小作文图表",
+      "pattern": "要求对比两个时间节点并给出原因",
+      "prob": 0.61
+    }
+  },
+  {
+    "id": "e59",
+    "category": "Vocabulary",
+    "subcategory": "搭配",
+    "title": "at odds with / stem from / hinge on",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "短语",
+      "搭配"
+    ],
+    "content": "at odds with 与…不一致；stem from 起源于；hinge on 取决于。",
+    "classicProblems": [
+      {
+        "title": "短语选择",
+        "description": "The policy failure largely ___ bureaucratic inertia.",
+        "solution": "stems from。"
+      }
+    ],
+    "memoryTips": [
+      "写作可替换 because of → stems from；depend on → hinges on；conflict with → be at odds with。"
+    ],
+    "prediction": {
+      "topic": "完形/翻译短语辨析",
+      "pattern": "三选一近义混淆",
+      "prob": 0.5
+    }
+  },
+  {
+    "id": "e60",
+    "category": "Grammar",
+    "subcategory": "非谓语",
+    "title": "独立主格与逻辑主语",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "非谓语",
+      "独立主格"
+    ],
+    "content": "独立主格=名词/代词+非谓语/形容词/介词短语，逻辑主语需与被修饰句保持逻辑一致。",
+    "classicProblems": [
+      {
+        "title": "翻译辨析",
+        "description": "The meeting over, the participants left in haste.",
+        "solution": "会议结束后，与主句主语 participants 一致。"
+      }
+    ],
+    "memoryTips": [
+      "见逗号+名词+分词，检查逻辑主语；翻译时多为“伴随/时间/原因”状语。"
+    ],
+    "prediction": {
+      "topic": "翻译或完形考独立主格",
+      "pattern": "选出与主句主语匹配的非谓语",
+      "prob": 0.45
+    }
+  },
+  {
+    "id": "e61",
+    "category": "Vocabulary",
+    "subcategory": "转化名词",
+    "title": "decline / descent / downturn 区分",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "名词",
+      "经济语境",
+      "近义辨析"
+    ],
+    "content": "decline 泛指下降/衰退；descent 强调“向下”过程或出身；downturn 经济下行拐点。阅读常以同义替换出现。",
+    "classicProblems": [
+      {
+        "title": "同义替换",
+        "description": "The industry faces a prolonged downturn.",
+        "solution": "downturn=economic decline；非“descent”。"
+      }
+    ],
+    "memoryTips": [
+      "经济文：downturn/slowdown；物理向下：descent；泛说下降：decline。"
+    ],
+    "prediction": {
+      "topic": "阅读词义题",
+      "pattern": "近义混淆",
+      "prob": 0.44
+    }
+  },
+  {
+    "id": "e62",
+    "category": "Writing",
+    "subcategory": "高级句式",
+    "title": "分裂句与强调结构",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 8,
+    "tags": [
+      "写作",
+      "强调",
+      "Cleft"
+    ],
+    "content": "It is/was + X + that/who + 从句，用于强调时间/原因/人物；口语有 What...is... 结构。",
+    "classicProblems": [
+      {
+        "title": "改写",
+        "description": "Rewrite to emphasize “innovation”: Innovation drives growth.",
+        "solution": "It is innovation that drives growth."
+      }
+    ],
+    "memoryTips": [
+      "强调人用 who，物/事/时间用 that；避免与 there be 混用。"
+    ],
+    "prediction": {
+      "topic": "大小作文句式变换",
+      "pattern": "要求强调某元素",
+      "prob": 0.48
+    }
+  },
+  {
+    "id": "e63",
+    "category": "Vocabulary",
+    "subcategory": "语气与态度",
+    "title": "modest / moderate / modesty",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 7,
+    "tags": [
+      "形容词",
+      "态度",
+      "真题"
+    ],
+    "content": "modest 可指谦虚、适度；moderate 表“中等/温和/节制”；modesty 为名词。阅读常用 moderate 来弱化语气。",
+    "classicProblems": [
+      {
+        "title": "真题语气题",
+        "description": "The report suggests a moderate increase in tax.",
+        "solution": "moderate=适度的；非“谦虚的”。"
+      }
+    ],
+    "memoryTips": [
+      "mo-der-ate=度；mo-dest=谦虚/不高；态度弱化首选 moderate。"
+    ],
+    "prediction": {
+      "topic": "完形/阅读态度题",
+      "pattern": "辨析弱化程度词",
+      "prob": 0.38
+    }
+  },
+  {
+    "id": "e2021",
+    "category": "Exam Year",
+    "subcategory": "2021",
+    "title": "2021 英语一真题侧重",
+    "difficulty": "Medium",
+    "importance": 5,
+    "frequency": 8,
+    "tags": [
+      "通知/建议信",
+      "图表作文",
+      "阅读主旨"
+    ],
+    "content": "小作文多通知/建议信；大作文偏折线/柱状图；阅读仍以主旨+细节为核心，推理题占比适中。",
+    "secondaryConclusions": [
+      "主旨题：首段主题句+转折后信息优先。",
+      "小作文三段：目的-细节-期待/致谢。"
+    ],
+    "examTips": [
+      "图表作文描述趋势用 increase/climb/decline；通知强调时间地点对象。"
+    ]
+  },
+  {
+    "id": "e2022",
+    "category": "Exam Year",
+    "subcategory": "2022",
+    "title": "2022 英语一真题重心",
+    "difficulty": "Medium",
+    "importance": 5,
+    "frequency": 9,
+    "tags": [
+      "逻辑衔接",
+      "长难句",
+      "段落排序"
+    ],
+    "content": "新题型常为段落排序；阅读考逻辑标记（however/therefore）与指代词回指；翻译多含定语/同位语从句。",
+    "secondaryConclusions": [
+      "排序题先找首尾段信号（主题句/总结句）。",
+      "长难句拆法：主干先行，修饰后置。"
+    ],
+    "examTips": [
+      "标记转折、因果词；翻译遇从句先定先行词与关系词功能。"
+    ]
+  },
+  {
+    "id": "e2023",
+    "category": "Exam Year",
+    "subcategory": "2023",
+    "title": "2023 英语一真题脉络",
+    "difficulty": "Medium",
+    "importance": 5,
+    "frequency": 8,
+    "tags": [
+      "社会治理",
+      "科普类长句",
+      "完形动词"
+    ],
+    "content": "作文偏社会治理话题；翻译常见科普类长句；完形高频动词/连词辨析，阅读推理题提升。",
+    "secondaryConclusions": [
+      "科普翻译：先按语意分层，保持被动/名词化风格。",
+      "完形先排固定搭配，再看语义场一致性。"
+    ],
+    "examTips": [
+      "作文用三段论 PEEL；推理题注意同义改写和暗示。"
+    ]
+  },
+  {
+    "id": "e2024",
+    "category": "Exam Year",
+    "subcategory": "2024",
+    "title": "2024 英语一真题侧重点",
+    "difficulty": "High",
+    "importance": 5,
+    "frequency": 10,
+    "tags": [
+      "逻辑一致性",
+      "学术文阅读",
+      "图表作文"
+    ],
+    "content": "阅读偏学术文，逻辑一致性、态度题增加；完形继续动词/副词考查；图表作文侧重趋势与原因分析。",
+    "secondaryConclusions": [
+      "态度题抓褒贬形容词与动词色彩。",
+      "图表作文结尾给出对策/展望可加分。"
+    ],
+    "examTips": [
+      "阅读先扫逻辑标记；作文首段 paraphrase 图表，主体给数据+原因。"
+    ]
+  },
+  {
+    "id": "e2025",
+    "category": "Exam Year",
+    "subcategory": "2025",
+    "title": "2025 英语一趋势预判",
+    "difficulty": "High",
+    "importance": 5,
+    "frequency": 10,
+    "tags": [
+      "推理题",
+      "长难句",
+      "科技隐私话题"
+    ],
+    "content": "预计推理/态度题占比继续提升；长难句含多层从句；作文可能聚焦科技伦理/隐私或绿色发展。",
+    "secondaryConclusions": [
+      "推理题正确选项多为弱化版同义改写。",
+      "科技话题作文可用安全/合规/普惠三点展开。"
+    ],
+    "examTips": [
+      "长难句先定位谓语动词再拆修饰；作文准备数据或案例支持论点。"
+    ]
+  },
+  {
+    "id": "e_sec_proofs",
+    "category": "Toolkit",
+    "subcategory": "Secondary Conclusions",
+    "title": "高频二级结论与验证思路（20 条）",
+    "difficulty": "Medium",
+    "importance": 5,
+    "frequency": 10,
+    "tags": [
+      "阅读",
+      "写作",
+      "解题技巧"
+    ],
+    "content": "英语一常考的 20 条微结论，附一句解释/验证方法，能直接写入 secondaryConclusions。",
+    "secondaryConclusions": [
+      "主旨题优先看转折/总结句；证：作者立场常在 however/therefore 之后显性表述。",
+      "推理题正确项多为弱化同义改写；证：出题人避免过度推断，常做语义弱化。",
+      "态度题抓情感色彩词（cautious/critical/optimistic）；证：形容词/动词体现立场。",
+      "细节题要“原词定位+同义替换”双检；证：选项常用 paraphrase 伪装。",
+      "指代题先最近名词短语，不通再看整句；证：语境指代最近原则。",
+      "段落排序首段含背景/定义，尾段含总结/展望；证：篇章结构惯例。",
+      "句子插入看上下逻辑线索（代词、指示词、逻辑词）；证：衔接词匹配可唯一定位。",
+      "长难句拆主干：主谓宾/系表先找，修饰语后置处理；证：语法骨架决定理解。",
+      "定语从句 that 不作成分，which 作宾语可前置介词；证：语法功能差异。",
+      "同位语从句解释抽象名词（fact/news/idea），关系词不作成分；证：成分分析。",
+      "虚拟语气与事实相反：过去 had done，现在/将来 would do；证：时态后移规则。",
+      "非谓语逻辑主语需与主句一致；证：错误一致性会致歧义。",
+      "倒装：Only+状语置首主句倒装；否定副词置首部分倒装；证：语序规则。",
+      "比较结构：no more than=only，not more than=at most；证：语义对比和真题翻译。",
+      "连接词分功能：并列/递进/转折/因果/举例，对应 and/moreover/however/therefore/for example；证：逻辑关系映射。",
+      "图表作文结构：描述→原因→建议/展望；证：评分标准要求信息完整与分析。",
+      "小作文三要素：称呼+目的+细节+期待/礼貌；证：评分项格式与内容匹配。",
+      "翻译被动多转主动/无主句；It is said that…译“据说”；证：英汉语态差异。",
+      "词汇题优先同词性同语义场，避免绝对化词；证：干扰项常用过强语气。",
+      "完形流程：搭配优先→逻辑衔接→语境语气；证：分层排除可提升正确率。"
+    ],
+    "examTips": [
+      "答题可写“依据：转折后/逻辑词/指代一致性”来支撑结论，避免空泛。"
+    ]
+  },
+  {
+    "id": "e45",
+    "category": "Writing",
+    "subcategory": "Technology Topic",
+    "title": "大作文科技话题万能框架（环保/AI/数字化通用）",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 3,
+    "tags": [
+      "写作",
+      "模板",
+      "科技",
+      "AI"
+    ],
+    "content": "三段式：现象+意义 → 问题/挑战 → 对策/展望。句型：It is universally acknowledged that…；The benefits, however, come with potential risks such as…；To maximize advantages while minimizing risks, we should….",
+    "secondaryConclusions": [
+      "首段：改写题干 + 举一例 + 亮观点（双刃剑）。",
+      "二段：列两风险+why（隐私/就业/安全），用 for one thing / for another。",
+      "三段：提出两行动（政府+个人/企业），收束 with joint efforts / sustainable future。"
+    ],
+    "examTips": [
+      "准备 6-8 个主题词：innovation, sustainability, digital divide, data privacy, carbon footprint；结尾用呼吁句强化态度。"
+    ]
+  },
+  {
+    "id": "e46",
+    "category": "Cloze",
+    "subcategory": "Logic Steps",
+    "title": "完形填空五步走",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 3,
+    "tags": [
+      "完形",
+      "逻辑",
+      "词汇语法"
+    ],
+    "content": "步骤：① 先通读抓主线；② 代入逻辑/情感词筛选（转折/因果/递进）；③ 搭配与固定结构；④ 时态/代词指代一致；⑤ 纵向一致性校验。",
+    "secondaryConclusions": [
+      "转折/递进词决定情感走向；优先锁定逻辑题。",
+      "代词和指示词必须与前文性数一致；否则排除。",
+      "空格前后搭配（动词+介词/名词固定搭配）优先度高于语境大意。"
+    ],
+    "examTips": [
+      "易错：同义近义干扰项，忽略情感极性；做题顺序建议先逻辑词再搭配再语境。"
+    ]
+  },
+  {
+    "id": "e47",
+    "category": "Reading",
+    "subcategory": "Skimming",
+    "title": "首尾句定位与段落主旨",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 3,
+    "tags": [
+      "阅读",
+      "主旨",
+      "略读"
+    ],
+    "content": "首段首句给背景与立场，尾句常有转折或总结；段首段尾快速定位可推全段主旨。",
+    "examTips": [
+      "遇到 however/indeed/but 后常出主旨；段尾 often hints future/proposal。"
+    ]
+  },
+  {
+    "id": "e48",
+    "category": "Reading",
+    "subcategory": "Detail Questions",
+    "title": "细节题定位与同义替换",
+    "difficulty": "Medium",
+    "importance": 4,
+    "frequency": 3,
+    "tags": [
+      "阅读",
+      "细节题"
+    ],
+    "content": "先找题干关键词再到原文定位；选项常用同义替换，如 big→considerable, cause→trigger。",
+    "examTips": [
+      "排除绝对化词 always/never；与原文相反或过度引申即错。"
+    ]
+  },
+  {
+    "id": "e49",
+    "category": "Translation",
+    "subcategory": "Passive Voice",
+    "title": "翻译中的被动态转化",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 3,
+    "tags": [
+      "翻译",
+      "语态"
+    ],
+    "content": "英译汉多将被动转主动或无主句；汉译英注意被动与介词短语搭配。",
+    "examTips": [
+      "It is said that…→据说；be done by… 若无必要可省去 by 短语。"
+    ]
+  },
+  {
+    "id": "e50",
+    "category": "Grammar",
+    "subcategory": "Subjunctive",
+    "title": "虚拟语气标准时态",
+    "difficulty": "Medium",
+    "importance": 3,
+    "frequency": 3,
+    "tags": [
+      "语法",
+      "虚拟"
+    ],
+    "content": "与现在/将来事实相反：主句 would do，从句 did；与过去事实相反：主句 would have done，从句 had done。",
+    "examTips": [
+      "常见结构：If only/It is high time/ as if/ would rather。"
+    ]
+  },
+  {
+    "id": "e51",
+    "category": "Writing",
+    "subcategory": "Small Writing",
+    "title": "小作文投诉/道歉模板",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 3,
+    "tags": [
+      "写作",
+      "小作文"
+    ],
+    "content": "三段式：表明目的→说明事实/损失→提出期望/补救；道歉类加解释与补救。",
+    "examTips": [
+      "保持礼貌：I would appreciate it if… / I am terribly sorry for…"
+    ]
+  },
+  {
+    "id": "e52",
+    "category": "Writing",
+    "subcategory": "Connector Bank",
+    "title": "写作衔接词速查",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 3,
+    "tags": [
+      "写作",
+      "衔接"
+    ],
+    "content": "并列 and/furthermore; 转折 however/nevertheless; 因果 therefore/as a result; 举例 for example; 让步 although/even if。",
+    "examTips": [
+      "一篇作文控制 3-4 个高频连接词，避免重复。"
+    ]
+  },
+  {
+    "id": "e53",
+    "category": "Vocabulary",
+    "subcategory": "Confusing Pairs",
+    "title": "易混词组选项排除",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 3,
+    "tags": [
+      "词汇",
+      "同义近义"
+    ],
+    "content": "如 adapt/adopt/adept; affect/effect; economic/economical；做题先判词性再判语义场。",
+    "examTips": [
+      "遇到形近词，先看搭配介词与主语宾语是否合理。"
+    ]
+  },
+  {
+    "id": "e54",
+    "category": "Reading",
+    "subcategory": "Inference",
+    "title": "推理题常见陷阱",
+    "difficulty": "Medium",
+    "importance": 3,
+    "frequency": 2,
+    "tags": [
+      "阅读",
+      "推理"
+    ],
+    "content": "推理题答案“弱化版”原文；极端词、扩大范围、多步推理往往错误。",
+    "examTips": [
+      "排除比原文更绝对/更广的选项；优先与原文语义方向一致且强度减弱的表述。"
+    ]
+  },
+  {
+    "id": "e55",
+    "category": "Grammar",
+    "subcategory": "Non-finite",
+    "title": "非谓语动词常考用法",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 3,
+    "tags": [
+      "语法",
+      "非谓语"
+    ],
+    "content": "doing 表主动/进行/结果，done 表被动/完成；to do 表目的/结果；独立主格结构表示伴随。",
+    "examTips": [
+      "看逻辑主语一致性；独立主格前常有逗号。"
+    ]
+  },
+  {
+    "id": "e56",
+    "category": "Listening",
+    "subcategory": "Note Taking",
+    "title": "听力笔记符号化",
+    "difficulty": "Low",
+    "importance": 2,
+    "frequency": 2,
+    "tags": [
+      "听力",
+      "笔记"
+    ],
+    "content": "用箭头/缩写/符号快速记录因果、对比；数字百分比要抓准。",
+    "examTips": [
+      "提前预览选项，预测话题；注意强调词、转折词。"
+    ]
+  },
+  {
+    "id": "e57",
+    "category": "Writing",
+    "subcategory": "Data Commentary",
+    "title": "图表作文数据描述句型",
+    "difficulty": "Low",
+    "importance": 3,
+    "frequency": 2,
+    "tags": [
+      "写作",
+      "图表"
+    ],
+    "content": "开头描述趋势：The chart reveals that…；数据变化：increase from A to B by C%；对比：A is twice as much as B。",
+    "examTips": [
+      "注意时态一致；描述比例用 one in four / a quarter。"
+    ]
+  },
+  {
+    "id": "e58",
+    "category": "Reading",
+    "subcategory": "Paragraph Match",
+    "title": "段落信息匹配技巧",
+    "difficulty": "Medium",
+    "importance": 3,
+    "frequency": 2,
+    "tags": [
+      "阅读",
+      "匹配"
+    ],
+    "content": "先扫题干关键词，再到文章找同义替换；注意人物/年份/机构等实体词定位。",
+    "examTips": [
+      "每段做标记，避免重复阅读；答案顺序通常不完全线性。"
+    ]
+  },
+  {
+    "id": "e59",
+    "category": "Vocabulary",
+    "subcategory": "Theme Banks",
+    "title": "高频主题词包（科技/环保/教育/健康）",
+    "difficulty": "Medium",
+    "importance": 3,
+    "frequency": 2,
+    "tags": [
+      "词汇",
+      "主题"
+    ],
+    "content": "科技：innovation, algorithm, automation, data privacy；环保：sustainability, emission, biodiversity；教育：curriculum, literacy；健康：immunity, nutrition。",
+    "examTips": [
+      "背词时连同搭配，如 reduce carbon emission, ensure data privacy, compulsory education。"
+    ]
+  }
+];
