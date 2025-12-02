@@ -1,9 +1,13 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useMemo } from 'react';
 import { MessageSquare, X, Send, Loader2, Sparkles, Bot } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
 import { useDeepSeek } from '../../hooks/useDeepSeek';
 import { cn } from '../../utils/cn';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 const AIChat = () => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -44,6 +48,21 @@ const AIChat = () => {
         }
     }, [isOpen]);
 
+    // Markdown renderer with GFM + LaTeX
+    const MarkdownMessage = useMemo(
+        () => ({ children }) => (
+            <ReactMarkdown
+                className="chat-markdown text-[13px] leading-relaxed"
+                remarkPlugins={[remarkGfm, remarkMath]}
+                rehypePlugins={[rehypeKatex]}
+                linkTarget="_blank"
+            >
+                {children}
+            </ReactMarkdown>
+        ),
+        []
+    );
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!inputValue.trim()) return;
@@ -81,22 +100,28 @@ const AIChat = () => {
 
             {/* Chat Window */}
             {isOpen && (
+                <>
                 <div
-                    className="fixed bottom-8 right-8 w-[90vw] md:w-[400px] h-[600px] max-h-[80vh] z-50 animate-float-up"
+                    className="fixed inset-0 bg-black/10 backdrop-blur-[1px] z-40"
+                    onClick={() => setIsOpen(false)}
+                    aria-hidden="true"
+                />
+                <div
+                    className="fixed bottom-8 right-8 w-[90vw] md:w-[420px] h-[620px] max-h-[82vh] z-50 animate-float-up drop-shadow-2xl"
                     role="dialog"
                     aria-label="AI聊天助手"
                     aria-modal="true"
                 >
-                    <Card className="h-full flex flex-col p-0 border-white/10 shadow-2xl shadow-black/50 !bg-[#0f172a]/90 backdrop-blur-xl">
+                    <Card className="h-full flex flex-col p-0 border border-slate-200 shadow-xl !bg-white">
                         {/* Header */}
-                        <div className="p-4 border-b border-white/10 flex justify-between items-center bg-white/5">
+                        <div className="p-4 border-b border-slate-200 flex justify-between items-center bg-slate-50">
                             <div className="flex items-center gap-3">
                                 <div className="p-2 rounded-xl bg-gradient-to-br from-violet-500 to-cyan-500 shadow-lg shadow-violet-500/20" aria-hidden="true">
                                     <Bot size={20} className="text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold text-sm">DeepSeek 考研导师</h3>
-                                    <p className="text-xs text-cyan-300 flex items-center gap-1.5">
+                                    <h3 className="text-slate-900 font-bold text-sm">DeepSeek 考研导师</h3>
+                                    <p className="text-xs text-slate-600 flex items-center gap-1.5">
                                         <span className="relative flex h-2 w-2" aria-label="在线状态">
                                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                                             <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
@@ -108,7 +133,7 @@ const AIChat = () => {
                             <button
                                 onClick={() => setIsOpen(false)}
                                 aria-label="关闭聊天"
-                                className="p-2 hover:bg-white/10 rounded-full transition-colors text-gray-400 hover:text-white"
+                                className="p-2 hover:bg-slate-200 rounded-full transition-colors text-slate-500 hover:text-slate-900"
                             >
                                 <X size={20} />
                             </button>
@@ -116,7 +141,7 @@ const AIChat = () => {
 
                         {/* Messages */}
                         <div
-                            className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin"
+                            className="flex-1 overflow-y-auto p-4 space-y-6 scrollbar-thin bg-white"
                             role="log"
                             aria-live="polite"
                             aria-label="聊天消息"
@@ -130,8 +155,8 @@ const AIChat = () => {
                                         {/* Avatar */}
                                         <div
                                             className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${msg.role === 'user'
-                                                ? 'bg-gradient-to-br from-violet-500 to-cyan-500'
-                                                : 'bg-white/10'
+                                                ? 'bg-gradient-to-br from-violet-500 to-cyan-500 text-white'
+                                                : 'bg-slate-100 text-slate-600'
                                                 }`}
                                             aria-hidden="true"
                                         >
@@ -144,10 +169,10 @@ const AIChat = () => {
                                                 "p-3.5 rounded-2xl text-sm leading-relaxed shadow-sm",
                                                 msg.role === 'user'
                                                     ? 'bg-gradient-to-br from-violet-600 to-cyan-600 text-white rounded-tr-none'
-                                                    : 'bg-white/10 text-gray-100 rounded-tl-none border border-white/5'
+                                                    : 'bg-slate-50 text-slate-800 rounded-tl-none border border-slate-200'
                                             )}
                                         >
-                                            {msg.content}
+                                            <MarkdownMessage>{msg.content}</MarkdownMessage>
                                         </div>
                                     </div>
                                 </div>
@@ -155,12 +180,12 @@ const AIChat = () => {
                             {isLoading && (
                                 <div className="flex justify-start">
                                     <div className="flex max-w-[85%] gap-3">
-                                        <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                                        <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0" aria-hidden="true">
                                             <Bot size={14} />
                                         </div>
-                                        <div className="bg-white/10 p-4 rounded-2xl rounded-tl-none border border-white/5 flex items-center gap-3">
-                                            <Loader2 size={16} className="animate-spin text-cyan-400" />
-                                            <span className="text-gray-400 text-sm">DeepSeek 正在思考...</span>
+                                        <div className="bg-slate-50 p-4 rounded-2xl rounded-tl-none border border-slate-200 flex items-center gap-3 text-slate-700">
+                                            <Loader2 size={16} className="animate-spin text-cyan-500" />
+                                            <span className="text-sm">DeepSeek 正在思考...</span>
                                         </div>
                                     </div>
                                 </div>
@@ -171,7 +196,7 @@ const AIChat = () => {
                         {/* Input */}
                         <form
                             onSubmit={handleSubmit}
-                            className="p-4 border-t border-white/10 bg-black/20"
+                            className="p-4 border-t border-slate-200 bg-white"
                             aria-label="发送消息"
                         >
                             <div className="relative flex gap-2">
@@ -182,7 +207,7 @@ const AIChat = () => {
                                     onChange={(e) => setInputValue(e.target.value)}
                                     placeholder="输入你的问题..."
                                     aria-label="消息输入框"
-                                    className="flex-1 bg-white/5 border border-white/10 rounded-xl py-3 pl-4 pr-4 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all"
+                                    className="flex-1 bg-white border border-slate-200 rounded-xl py-3 pl-4 pr-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 transition-all"
                                 />
                                 <Button
                                     type="submit"
@@ -197,6 +222,7 @@ const AIChat = () => {
                         </form>
                     </Card>
                 </div>
+                </>
             )}
         </>
     );

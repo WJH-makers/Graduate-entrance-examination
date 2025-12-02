@@ -13,6 +13,11 @@ import { resources } from './data/resources';
 import { AppProvider } from './context/AppContext';
 import HotExamSection from './components/features/HotExamSection';
 import TopNavTabs from './components/layout/TopNavTabs';
+import ExamTimeline from './components/features/ExamTimeline';
+import SourceBoard from './components/features/SourceBoard';
+import KeywordGrid from './components/features/KeywordGrid';
+import RuleAccordion from './components/features/RuleAccordion';
+import FloatingTools from './components/features/FloatingTools';
 
 // 懒加载非关键组件
 const StudyPlan = lazy(() => import('./components/features/StudyPlan'));
@@ -77,6 +82,12 @@ function App() {
       default:
         return (
           <>
+            <div className="mb-10" id="timeline-board">
+              <ExamTimeline />
+              <SourceBoard />
+              <KeywordGrid />
+              <RuleAccordion />
+            </div>
             <Hero />
             <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
             <div className="mb-8" id="news">
@@ -126,6 +137,7 @@ function App() {
         <OptimizeButton onClick={() => setCodexOpen(true)} />
         <CodexPanel open={codexOpen} onClose={() => setCodexOpen(false)} />
         <CommandPalette open={paletteOpen} onClose={setPaletteOpen} commands={commands} />
+        <FloatingTools onTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
       </div>
     </AppProvider>
   );

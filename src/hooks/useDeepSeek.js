@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { chatService } from '../services/api';
 
 // 最大消息历史数量，防止内存泄漏
@@ -8,50 +8,35 @@ export const useDeepSeek = (initialMessages = []) => {
     const [messages, setMessages] = useState(initialMessages);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const requestIdRef = useRef(0);
 
     const sendMessage = useCallback(async (content) => {
         if (!content.trim()) return;
 
         const userMessage = { role: 'user', content };
-
-        // 使用函数式更新避免闭包问题
+        let nextMessages = [];
         setMessages(prev => {
-            const newMessages = [...prev, userMessage];
-            // 限制消息历史数量
-            return newMessages.length > MAX_MESSAGES
-                ? newMessages.slice(-MAX_MESSAGES)
-                : newMessages;
+            const newList = [...prev, userMessage];
+            nextMessages = newList.length > MAX_MESSAGES
+                ? newList.slice(-MAX_MESSAGES)
+                : newList;
+            return nextMessages;
         });
 
+        const currentRequestId = ++requestIdRef.current;
         setIsLoading(true);
         setError(null);
 
         try {
-            // 使用最新的消息状态进行API调用
-            setMessages(prevMessages => {
-                const apiMessages = [...prevMessages].map(({ role, content }) => ({ role, content }));
+            const apiMessages = nextMessages.map(({ role, content }) => ({ role, content }));
+            const aiMessage = await chatService.sendMessage(apiMessages);
 
-                // 异步调用API
-                chatService.sendMessage(apiMessages)
-                    .then(aiMessage => {
-                        setMessages(prev => {
-                            const newMessages = [...prev, aiMessage];
-                            return newMessages.length > MAX_MESSAGES
-                                ? newMessages.slice(-MAX_MESSAGES)
-                                : newMessages;
-                        });
-                        setIsLoading(false);
-                    })
-                    .catch(err => {
-                        setError(err.message);
-                        setMessages(prev => [...prev, {
-                            role: 'assistant',
-                            content: `抱歉，${err.message}。请稍后再试。`
-                        }]);
-                        setIsLoading(false);
-                    });
+            // 只处理最新请求，旧请求直接丢弃
+            if (currentRequestId !== requestIdRef.current) return;
 
-                return prevMessages;
+            setMessages(prev => {
+                const newList = [...prev, aiMessage];
+                return newList.length > MAX_MESSAGES ? newList.slice(-MAX_MESSAGES) : newList;
             });
         } catch (err) {
             setError(err.message);
@@ -59,9 +44,13 @@ export const useDeepSeek = (initialMessages = []) => {
                 role: 'assistant',
                 content: '抱歉，连接服务器时出现问题，请检查网络或稍后再试。'
             }]);
-            setIsLoading(false);
+        } finally {
+            // 仅在当前请求仍是最新时结束 loading
+            if (currentRequestId === requestIdRef.current) {
+                setIsLoading(false);
+            }
         }
-    }, []); // 空依赖数组，因为我们使用函数式更新
+    }, []);
 
     return {
         messages,
