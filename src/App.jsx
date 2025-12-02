@@ -121,7 +121,11 @@ function App() {
       <ParticleBackground />
       <CursorGlow />
       <TopNavTabs activePage={activePage} onChange={setActivePage} />
-      <main id="main-content" role="main" className="min-h-screen px-4 md:px-8 lg:px-16 pb-20 overflow-x-hidden relative">
+      <main
+        id="main-content"
+        role="main"
+        className="min-h-screen px-4 md:px-8 lg:px-16 pb-20 overflow-x-hidden relative"
+      >
         <h1 className="sr-only">2026 考研资料站关键时间线与备考资源</h1>
         <div className="max-w-7xl mx-auto">
           {renderPage()}
