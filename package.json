@@ -13,7 +13,7 @@
     "format": "prettier -w \"src/**/*.{js,jsx,css}\"",
     "stylelint": "stylelint \"src/**/*.{css,pcss}\"",
     "preview:start": "npm run preview -- --host 0.0.0.0 --port 4173",
-    "test:axe": "start-server-and-test preview:start http://127.0.0.1:4173 \"axe http://127.0.0.1:4173 --timeout 60000 --exit\"",
+    "test:axe": "start-server-and-test preview:start http://localhost:4173 \"axe http://localhost:4173 --timeout 60000 --exit\"",
     "test:lighthouse": "start-server-and-test preview:start http://127.0.0.1:4173 \"lhci autorun --upload.target=filesystem --upload.outputDir=.lighthouse --collect.url=http://127.0.0.1:4173 --collect.numberOfRuns=1\"",
     "visualize": "vite build --report"
   },
