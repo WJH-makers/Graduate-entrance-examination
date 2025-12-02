@@ -1,10 +1,9 @@
-/* eslint-env node */
-module.exports = {
+export default {
   ci: {
     collect: {
       url: ['http://127.0.0.1:4173'],
       numberOfRuns: 1,
-      startServerCommand: null,
+      startServerCommand: null
     },
     upload: {
       target: 'filesystem',
