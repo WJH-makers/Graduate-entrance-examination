@@ -9,8 +9,35 @@
   <body>
     <main id="app-main">
       <h1 class="sr-only">2026 考研资料站关键时间线与备考资源</h1>
-      <div id="root"></div>
+      <div id="root">
+        <div class="preload-splash">
+          <div class="preload-dot"></div>
+          <p>页面加载中，请稍候…</p>
+        </div>
+      </div>
     </main>
     <script type="module" src="/src/main.jsx"></script>
+    <style>
+      .preload-splash {
+        display: grid;
+        place-items: center;
+        gap: 12px;
+        padding: 48px 16px;
+        color: #0f172a;
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      }
+      .preload-dot {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+        animation: preload-pulse 1s infinite ease-in-out;
+      }
+      @keyframes preload-pulse {
+        0% { transform: scale(0.9); opacity: 0.6; }
+        50% { transform: scale(1.05); opacity: 1; }
+        100% { transform: scale(0.9); opacity: 0.6; }
+      }
+    </style>
   </body>
 </html>
