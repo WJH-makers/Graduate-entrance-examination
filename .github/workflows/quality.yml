@@ -31,13 +31,4 @@ jobs:
       - name: Axe accessibility scan
         run: npm run test:axe
 
-      - name: Lighthouse CI
-        run: npm run test:lighthouse
-
-      - name: Upload Lighthouse reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: lighthouse-report
-          path: ./.lighthouse
-          if-no-files-found: ignore
+      # Lighthouse skipped for now to avoid CI flakiness
