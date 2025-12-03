@@ -67,24 +67,26 @@ const HotExamSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* 时间轴 */}
-        <Card className="border-slate-200 bg-white/90 shadow-md flex flex-col p-4 md:p-5 h-full">
-          <div className="flex items-center gap-2 mb-3 text-amber-600">
-            <CalendarDays size={18} />
-            <span className="font-semibold">关键时间线</span>
-          </div>
-          <ul className="space-y-2 text-sm text-slate-700 leading-relaxed flex-1 overflow-y-auto pr-1">
-            {(showAllTimeline ? timeline : timeline.slice(0, 6)).map(item => (
-              <li key={item.date} className="flex gap-2">
-                <span className="font-mono text-xs text-slate-500 w-24">{item.date}</span>
-                <span>{item.label}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-3 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-2 flex gap-2">
-            <AlertTriangle size={14} /> 报名/确认各省略有差异，按省级公告为准。
-          </div>
-          {timeline.length > 6 && (
-            <button
+          <Card className="border-slate-200 bg-white/90 shadow-md flex flex-col p-4 md:p-5 h-full">
+            <div className="flex items-center gap-2 mb-3 text-amber-600">
+              <CalendarDays size={18} />
+              <span className="font-semibold">关键时间线</span>
+            </div>
+            <div className="text-sm text-slate-700 leading-relaxed flex-1 overflow-y-auto pr-1">
+              <div className="grid gap-2 md:grid-cols-2">
+                {(showAllTimeline ? timeline : timeline.slice(0, 6)).map(item => (
+                  <div key={item.date} className="flex gap-2">
+                    <span className="font-mono text-[11px] text-slate-500 w-24 flex-shrink-0">{item.date}</span>
+                    <span className="text-[13px]">{item.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="mt-3 text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded p-2 flex gap-2">
+              <AlertTriangle size={14} /> 报名/确认各省略有差异，按省级公告为准。
+            </div>
+            {timeline.length > 6 && (
+              <button
               type="button"
               className="mt-3 text-xs text-cyan-600 underline underline-offset-2"
               onClick={() => setShowAllTimeline((v) => !v)}
@@ -95,33 +97,35 @@ const HotExamSection = () => {
         </Card>
 
         {/* 最新权威链接 */}
-        <Card className="border-slate-200 bg-white/90 shadow-md flex flex-col p-4 md:p-5 h-full">
-          <div className="flex items-center gap-2 mb-3 text-cyan-600">
-            <LinkIcon size={18} />
-            <span className="font-semibold">近三个月权威信息（自动爬取优先）</span>
-          </div>
-          <div className="flex-1 max-h-[320px] overflow-y-auto pr-1 space-y-2 text-sm leading-relaxed">
-            {(showAllLinks ? (liveLinks || hotLinks) : (liveLinks || hotLinks).slice(0, 8)).map((link, idx) => (
-              <a
-                key={idx}
-                className="block p-2 rounded-lg hover:bg-slate-50 border border-transparent hover:border-slate-200 break-words"
-                href={link.url}
-                target="_blank"
-                  rel="noreferrer"
-                >
-                  <div className="flex justify-between text-xs text-slate-500">
-                    <span>{link.source}</span>
-                    <span>{link.date}</span>
-                  </div>
-                  <div className="text-slate-800">{link.title}</div>
-              </a>
-            ))}
-          </div>
-          {(liveLinks || hotLinks).length > 8 && (
-            <button
-              type="button"
-              className="mt-3 text-xs text-cyan-600 underline underline-offset-2"
-              onClick={() => setShowAllLinks((v) => !v)}
+          <Card className="border-slate-200 bg-white/90 shadow-md flex flex-col p-4 md:p-5 h-full">
+            <div className="flex items-center gap-2 mb-3 text-cyan-600">
+              <LinkIcon size={18} />
+              <span className="font-semibold">近三个月权威信息（自动爬取优先）</span>
+            </div>
+            <div className="flex-1 max-h-[320px] overflow-y-auto pr-1 text-sm leading-relaxed">
+              <div className="grid gap-2 md:grid-cols-2">
+                {(showAllLinks ? (liveLinks || hotLinks) : (liveLinks || hotLinks).slice(0, 8)).map((link, idx) => (
+                  <a
+                    key={idx}
+                    className="block p-2 rounded-lg hover:bg-slate-50 border border-transparent hover:border-slate-200 break-words"
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <div className="flex justify-between text-[11px] text-slate-500 gap-2">
+                      <span className="truncate">{link.source}</span>
+                      <span className="shrink-0">{link.date}</span>
+                    </div>
+                    <div className="text-slate-800 text-[13px] leading-snug line-clamp-2">{link.title}</div>
+                  </a>
+                ))}
+              </div>
+            </div>
+            {(liveLinks || hotLinks).length > 8 && (
+              <button
+                type="button"
+                className="mt-3 text-xs text-cyan-600 underline underline-offset-2"
+                onClick={() => setShowAllLinks((v) => !v)}
             >
               {showAllLinks ? '收起列表' : '展开全部'}
             </button>
@@ -131,11 +135,11 @@ const HotExamSection = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {/* OCR 高频榜 */}
-        <Card className="border-slate-200 bg-white/90 shadow-md flex flex-col p-4 md:p-5 h-full">
-          <div className="flex items-center gap-2 mb-3 text-violet-600">
-            <Sparkles size={18} />
-            <span className="font-semibold">OCR 高频榜（模拟卷）</span>
-          </div>
+          <Card className="border-slate-200 bg-white/90 shadow-md flex flex-col p-4 md:p-5 h-full">
+            <div className="flex items-center gap-2 mb-3 text-violet-600">
+              <Sparkles size={18} />
+              <span className="font-semibold">OCR 高频榜（模拟卷）</span>
+            </div>
           <div className="grid gap-2 sm:grid-cols-2 text-sm text-slate-800 flex-1 overflow-y-auto pr-1">
             {ocrTop.map((item, idx) => (
               <div key={idx} className="flex items-center justify-between bg-slate-50 border border-slate-200 rounded-lg px-3 py-2">
@@ -159,14 +163,14 @@ const HotExamSection = () => {
         </Card>
 
         {/* 复试规则 + 阅卷要点合并 */}
-        <Card className="border-slate-200 bg-white/90 shadow-md flex flex-col p-4 md:p-5 h-full">
-          <div className="flex items-center gap-2 mb-2 text-indigo-600">
-            <span className="font-semibold">复试规则 & 阅卷要点</span>
-          </div>
+          <Card className="border-slate-200 bg-white/90 shadow-md flex flex-col p-4 md:p-5 h-full">
+            <div className="flex items-center gap-2 mb-2 text-indigo-600">
+              <span className="font-semibold">复试规则 & 阅卷要点</span>
+            </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 flex-1 overflow-y-auto pr-1">
             <div className="space-y-2">
               <p className="text-sm text-slate-700 font-semibold">北大智能学院</p>
-              <ul className="space-y-2 text-sm text-slate-700 leading-relaxed break-words">
+              <ul className="space-y-2 text-[13px] text-slate-700 leading-relaxed break-words">
                 {(showAllRules ? pkuAiRules.bullets : pkuAiRules.bullets.slice(0, 4)).map((b, idx) => (
                   <li key={idx} className="flex gap-2">
                     <span className="text-indigo-500 mt-0.5">•</span>
@@ -177,7 +181,7 @@ const HotExamSection = () => {
             </div>
             <div className="space-y-2">
               <p className="text-sm text-slate-700 font-semibold">北京统考阅卷</p>
-              <ul className="space-y-2 text-sm text-slate-700 leading-relaxed break-words">
+              <ul className="space-y-2 text-[13px] text-slate-700 leading-relaxed break-words">
                 {(showAllRules ? beijingMarking.bullets : beijingMarking.bullets.slice(0, 4)).map((item, idx) => (
                   <li key={idx} className="flex gap-2">
                     <span className="text-emerald-500 mt-0.5">•</span>
