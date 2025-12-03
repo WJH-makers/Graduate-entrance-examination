@@ -17,7 +17,8 @@
     "test:lighthouse": "echo \"skip lhci in CI\"",
     "visualize": "vite build --report",
     "prepare": "husky install",
-    "generate:knowledge": "node scripts/generate-knowledge.mjs"
+    "generate:knowledge": "node scripts/generate-knowledge.mjs",
+    "clarify:knowledge": "node scripts/clarify-knowledge.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.11",

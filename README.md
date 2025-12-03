@@ -16,12 +16,14 @@ React + Vite 前端，用于整理考研数学一、计算机 408、英语一、
 - 数据源：`src/data/knowledge/*.js`（按科目拆分）
 - 知识点快速导览：`public/knowledge_summary.md`
 - 冲刺 30 条清单：`public/knowledge_shortlist.md`
+- 全量澄清版（含二级结论）：`public/knowledge_clarified.md`
 
 ## 架构要点
 - 全局状态：`src/store/useAppStore.js`（zustand，集中管理 tab、搜索词、面板开关、主题偏好）。
 - 数据获取与缓存：`@tanstack/react-query` 在 `src/main.jsx` 注入，新闻摘要使用 `useNewsDigest`，AI 聊天使用 mutation 并复用缓存策略。
 - 设计令牌：`src/constants/theme.js` & `src/index.css` 暴露字体、间距、圆角、阴影变量；`SectionShell` 统一区块标题、徽标与留白。
 - 脚本：`scripts/generate-knowledge.mjs` 生成汇总/清单；CI 会运行 lint + build + generate:knowledge 并上传 md 工件。
+- 澄清与二级结论生成：`npm run clarify:knowledge`，输出 `public/knowledge_clarified.md`（为每个知识点补足最少 2 条二级结论）。
 
 ## 项目结构
 - `src/components/`：页面与组件
