@@ -39,13 +39,13 @@ const AIWorkbench = () => {
     };
 
     return (
-        <Card className="bg-white/5 border-white/10">
+        <Card className="section-block bg-white">
             <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                    <span className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-violet-500 rounded-full" />
+                    <span className="w-1 h-8 bg-gradient-to-b from-cyan-500 to-amber-400 rounded-full" />
                     <div>
-                        <p className="text-xs text-cyan-300 uppercase tracking-[0.2em]">DeepSeek Power</p>
-                        <h3 className="text-xl font-bold text-white">AI 冲刺工作台</h3>
+                        <p className="text-xs text-cyan-600 uppercase tracking-[0.2em]">DeepSeek Power</p>
+                        <h3 className="text-xl font-bold text-slate-900">AI 冲刺工作台</h3>
                     </div>
                 </div>
             </div>
@@ -105,9 +105,9 @@ const AIWorkbench = () => {
                 </TabsContent>
             </Tabs>
 
-            {loading && <p className="text-sm text-cyan-300 mt-4 flex items-center gap-2"><Loader2 size={14} className="animate-spin" /> 调用 DeepSeek 中…</p>}
+            {loading && <p className="text-sm text-cyan-700 mt-4 flex items-center gap-2"><Loader2 size={14} className="animate-spin" /> 调用 DeepSeek 中…</p>}
             {!loading && output && (
-                <div className="mt-4 p-3 rounded-lg border border-white/10 bg-black/30 text-sm whitespace-pre-wrap text-gray-100">
+                <div className="mt-4 p-3 rounded-lg border border-slate-200 bg-slate-50 text-sm whitespace-pre-wrap text-slate-800">
                     {output}
                 </div>
             )}

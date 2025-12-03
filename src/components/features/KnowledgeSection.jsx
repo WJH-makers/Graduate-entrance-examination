@@ -309,13 +309,12 @@ const KnowledgeSection = () => {
     }, [currentSubject, tooManyForDiagram]);
 
     return (
-        <div className="relative z-10 mb-20">
+        <div className="relative z-10 mb-20 section-block">
             {/* Header */}
-            <div className="flex items-center justify-between mb-8 px-2">
-                <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
-                    <span className="w-1 h-8 bg-gradient-to-b from-violet-500 to-cyan-500 rounded-full" />
-                    知识体系
-                </h2>
+            <div className="section-title-bar mb-4 px-1">
+                <span className="bar" />
+                <h2>知识体系</h2>
+                <span className="pill-soft">按科目 · 分类 · 子类浏览</span>
             </div>
 
             {/* Subject Tabs */}
@@ -334,7 +333,7 @@ const KnowledgeSection = () => {
                             className={cn(
                                 "flex items-center gap-2 px-4 py-2.5 rounded-lg font-medium transition-all border whitespace-nowrap shadow-sm hover:shadow-md",
                                 selectedSubject === subject
-                                    ? "bg-gradient-to-r from-blue-500 to-cyan-400 text-white border-transparent shadow-lg shadow-cyan-500/25"
+                                    ? "bg-gradient-to-r from-cyan-500 to-amber-400 text-white border-transparent shadow-lg shadow-cyan-500/25"
                                     : "bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:text-slate-900"
                             )}
                         >

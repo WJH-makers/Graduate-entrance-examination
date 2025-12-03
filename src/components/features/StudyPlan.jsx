@@ -14,18 +14,12 @@ const colorByDay = (day) => {
 
 const StudyPlan = () => {
   return (
-    <div className="mb-20" id="study-plan">
-      <div className="flex items-center justify-between mb-6 px-2">
-        <div className="flex items-center gap-3">
-          <span className="w-1 h-9 bg-gradient-to-b from-cyan-500 to-violet-500 rounded-full" />
-          <div>
-            <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <CalendarDays size={22} /> 冲刺 20 天计划
-            </h2>
-            <p className="text-slate-500 text-sm">按 2025-12-20/21 初试节奏；若官方日期变化请整体平移。</p>
-          </div>
-        </div>
-        <Badge variant="secondary" className="flex items-center gap-1">
+    <div className="mb-20 section-block" id="study-plan">
+      <div className="section-title-bar mb-4 px-1">
+        <span className="bar" />
+        <h2>冲刺 20 天计划</h2>
+        <span className="pill-soft">按 2025-12-20/21 初试节奏；日期变动整体平移</span>
+        <Badge variant="secondary" className="ml-auto flex items-center gap-1">
           <Target size={14} /> D-20 起跑
         </Badge>
       </div>
