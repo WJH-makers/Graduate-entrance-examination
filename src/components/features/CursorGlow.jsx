@@ -2,14 +2,26 @@ import React, { useEffect, useState } from "react";
 
 const CursorGlow = () => {
   const [pos, setPos] = useState({ x: -200, y: -200 });
+  const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setEnabled(!media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
     const handler = (e) => {
       setPos({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener("pointermove", handler);
     return () => window.removeEventListener("pointermove", handler);
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) return null;
 
   return (
     <div

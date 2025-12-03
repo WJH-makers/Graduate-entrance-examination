@@ -69,12 +69,39 @@ const ResourceCard = ({ resource }) => {
                 ))}
             </div>
 
+            {resource.downloadUrl && resource.downloadUrl !== '#' && (
+              <p className="text-[11px] text-slate-500 mb-3 font-mono break-all">直链：{resource.downloadUrl}</p>
+            )}
+
             <div className="flex gap-3 mt-auto">
-                <Button className="flex-1" variant="secondary" size="sm">
+                <Button
+                  className="flex-1"
+                  variant="secondary"
+                  size="sm"
+                  disabled={!resource.downloadUrl || resource.downloadUrl === '#'}
+                  title={resource.downloadUrl && resource.downloadUrl !== '#' ? '在新标签打开资源' : '链接待补充'}
+                  onClick={() => {
+                    if (resource.downloadUrl && resource.downloadUrl !== '#') {
+                      window.open(resource.downloadUrl, '_blank', 'noreferrer');
+                    }
+                  }}
+                >
                     <Download size={16} className="mr-2" />
-                    下载
+                    {resource.downloadUrl && resource.downloadUrl !== '#' ? '下载/查看' : '待发布'}
                 </Button>
-                <Button variant="ghost" size="icon" className="w-10 h-10 rounded-xl">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="w-10 h-10 rounded-xl"
+                  disabled={!resource.downloadUrl || resource.downloadUrl === '#'}
+                  aria-label="打开资源链接"
+                  title={resource.downloadUrl && resource.downloadUrl !== '#' ? '在新标签打开资源' : '链接待补充'}
+                  onClick={() => {
+                    if (resource.downloadUrl && resource.downloadUrl !== '#') {
+                      window.open(resource.downloadUrl, '_blank', 'noreferrer');
+                    }
+                  }}
+                >
                     <ExternalLink size={16} />
                 </Button>
             </div>

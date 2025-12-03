@@ -1,4 +1,4 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useMemo, lazy, Suspense, useEffect, useRef } from 'react';
 import Hero from './components/features/Hero';
 import SearchBar from './components/features/SearchBar';
 import ResourceGrid from './components/features/ResourceGrid';
@@ -19,6 +19,12 @@ import KeywordGrid from './components/features/KeywordGrid';
 import RuleAccordion from './components/features/RuleAccordion';
 import FloatingTools from './components/features/FloatingTools';
 
+const resolveInitialPage = () => {
+  if (typeof window === 'undefined') return 'home';
+  const hash = window.location.hash.replace('#', '');
+  return ['home', 'knowledge', 'plan', 'workbench'].includes(hash) ? hash : 'home';
+};
+
 // 懒加载非关键组件
 const StudyPlan = lazy(() => import('./components/features/StudyPlan'));
 const KnowledgeSection = lazy(() => import('./components/features/KnowledgeSection'));
@@ -29,7 +35,8 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [codexOpen, setCodexOpen] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const [activePage, setActivePage] = useState('home'); // home | knowledge | plan | workbench
+  const [activePage, setActivePage] = useState(resolveInitialPage); // home | knowledge | plan | workbench
+  const searchInputRef = useRef(null);
 
   // 资源筛选
   const filteredResources = useMemo(() => {
@@ -50,6 +57,49 @@ function App() {
     { id: 'tab-plan', label: '切换到 冲刺计划', action: () => setActivePage('plan') },
     { id: 'tab-workbench', label: '切换到 AI 工作台', action: () => setActivePage('workbench') },
   ], []);
+
+  // 页面切换同步到 Hash，便于分享/刷新后保持状态
+  useEffect(() => {
+    const nextHash = `#${activePage || 'home'}`;
+    if (window.location.hash !== nextHash) {
+      window.history.replaceState(null, '', nextHash);
+    }
+  }, [activePage]);
+
+  // 全局快捷键：/ 聚焦搜索；Cmd/Ctrl+O 打开 Codex；Cmd/Ctrl+数字 切换页签
+  useEffect(() => {
+    const handler = (e) => {
+      const isTyping = ['INPUT', 'TEXTAREA'].includes(e.target.tagName) || e.target.isContentEditable;
+      if (e.key === '/' && !e.metaKey && !e.ctrlKey && !isTyping) {
+        e.preventDefault();
+        searchInputRef.current?.focus();
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'o') {
+        e.preventDefault();
+        setCodexOpen(true);
+      }
+      if ((e.metaKey || e.ctrlKey) && ['1', '2', '3', '4'].includes(e.key)) {
+        e.preventDefault();
+        const map = { '1': 'home', '2': 'knowledge', '3': 'plan', '4': 'workbench' };
+        setActivePage(map[e.key]);
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, []);
+
+  const scrollToSection = (id) => {
+    if (activePage !== 'home') {
+      setActivePage('home');
+      // 等待页面切换完成后再滚动
+      setTimeout(() => scrollToSection(id), 60);
+      return;
+    }
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   // 页面块
   const renderPage = () => {
@@ -89,7 +139,7 @@ function App() {
               <RuleAccordion />
             </div>
             <Hero />
-            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} inputRef={searchInputRef} />
             <div className="mb-8" id="news">
               <NewsBar />
             </div>
@@ -142,7 +192,11 @@ function App() {
         <OptimizeButton onClick={() => setCodexOpen(true)} />
         <CodexPanel open={codexOpen} onClose={() => setCodexOpen(false)} />
         <CommandPalette open={paletteOpen} onClose={setPaletteOpen} commands={commands} />
-        <FloatingTools onTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })} />
+        <FloatingTools
+          onCalendar={() => scrollToSection('timeline-board')}
+          onReminder={() => scrollToSection('news')}
+          onTop={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        />
       </main>
     </AppProvider>
   );
@@ -155,3 +209,4 @@ const Loading = () => (
 );
 
 export default App;
+
