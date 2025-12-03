@@ -6,6 +6,7 @@ export const FloatingTools = ({ onCalendar, onReminder, onTop }) => {
   return (
     <div className="fixed right-5 bottom-6 z-40 flex flex-col gap-3">
       <button
+        type="button"
         onClick={onCalendar}
         className={cn('w-12 h-12 rounded-full shadow-lg bg-white border border-slate-200 flex items-center justify-center hover:-translate-y-1 transition')}
         aria-label="跳到关键时间线"
@@ -14,6 +15,7 @@ export const FloatingTools = ({ onCalendar, onReminder, onTop }) => {
         <CalendarClock className="text-indigo-600" size={18} />
       </button>
       <button
+        type="button"
         onClick={onReminder}
         className={cn('w-12 h-12 rounded-full shadow-lg bg-white border border-slate-200 flex items-center justify-center hover:-translate-y-1 transition')}
         aria-label="查看资讯提醒"
@@ -22,6 +24,7 @@ export const FloatingTools = ({ onCalendar, onReminder, onTop }) => {
         <Bell className="text-amber-500" size={18} />
       </button>
       <button
+        type="button"
         onClick={onTop}
         className={cn('w-12 h-12 rounded-full shadow-lg bg-slate-900 text-white flex items-center justify-center hover:-translate-y-1 transition')}
         aria-label="返回顶部"

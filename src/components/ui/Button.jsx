@@ -23,6 +23,7 @@ export const Button = React.forwardRef(({
     size = 'md',
     isLoading = false,
     disabled,
+    type = 'button',
     children,
     ...props
 }, ref) => {
@@ -30,6 +31,7 @@ export const Button = React.forwardRef(({
         <button
             ref={ref}
             disabled={disabled || isLoading}
+            type={type}
             className={cn(
                 'inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none',
                 variants[variant],

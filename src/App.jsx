@@ -19,10 +19,13 @@ import KeywordGrid from './components/features/KeywordGrid';
 import RuleAccordion from './components/features/RuleAccordion';
 import FloatingTools from './components/features/FloatingTools';
 
+const PAGE_IDS = ['home', 'knowledge', 'plan', 'workbench'];
+const DEFAULT_PAGE = 'home';
+
 const resolveInitialPage = () => {
-  if (typeof window === 'undefined') return 'home';
+  if (typeof window === 'undefined') return DEFAULT_PAGE;
   const hash = window.location.hash.replace('#', '');
-  return ['home', 'knowledge', 'plan', 'workbench'].includes(hash) ? hash : 'home';
+  return PAGE_IDS.includes(hash) ? hash : DEFAULT_PAGE;
 };
 
 // 懒加载非关键组件
@@ -60,7 +63,7 @@ function App() {
 
   // 页面切换同步到 Hash，便于分享/刷新后保持状态
   useEffect(() => {
-    const nextHash = `#${activePage || 'home'}`;
+    const nextHash = `#${activePage || DEFAULT_PAGE}`;
     if (window.location.hash !== nextHash) {
       window.history.replaceState(null, '', nextHash);
     }
@@ -80,7 +83,7 @@ function App() {
       }
       if ((e.metaKey || e.ctrlKey) && ['1', '2', '3', '4'].includes(e.key)) {
         e.preventDefault();
-        const map = { '1': 'home', '2': 'knowledge', '3': 'plan', '4': 'workbench' };
+        const map = { '1': PAGE_IDS[0], '2': PAGE_IDS[1], '3': PAGE_IDS[2], '4': PAGE_IDS[3] };
         setActivePage(map[e.key]);
       }
     };
@@ -89,8 +92,8 @@ function App() {
   }, []);
 
   const scrollToSection = (id) => {
-    if (activePage !== 'home') {
-      setActivePage('home');
+    if (activePage !== DEFAULT_PAGE) {
+      setActivePage(DEFAULT_PAGE);
       // 等待页面切换完成后再滚动
       setTimeout(() => scrollToSection(id), 60);
       return;
@@ -209,4 +212,5 @@ const Loading = () => (
 );
 
 export default App;
+
 

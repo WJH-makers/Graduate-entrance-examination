@@ -13,6 +13,7 @@ const presets = [
 ];
 
 const CACHE_KEY = 'news-digest-cache-v1';
+const MAX_ITEMS = 6;
 
 const parseLines = (text) => {
   if (!text) return [];
@@ -20,7 +21,7 @@ const parseLines = (text) => {
     .split('\n')
     .map(line => line.replace(/^[-\u2022]\s*/, '').trim())
     .filter(Boolean)
-    .slice(0, 6)
+    .slice(0, MAX_ITEMS)
     .map((line, idx) => {
       const match = line.match(/(\d{4}[-./]\d{1,2}[-./]\d{1,2}|\d{1,2}[-./]\d{1,2})/);
       const date = match ? match[0] : '今日';
@@ -97,6 +98,7 @@ export const NewsBar = () => {
       setLastUpdated(cached.time);
     } else {
       setItems(buildFallback());
+      setLastUpdated(Date.now());
     }
     fetchNews(query, { silent: Boolean(cached) });
     const timer = setInterval(() => fetchNews(query, { silent: true }), 12 * 60 * 60 * 1000); // 每12小时自动刷新
@@ -164,7 +166,7 @@ export const NewsBar = () => {
           </div>
         </div>
 
-        <div className="grid gap-2">
+        <div className="grid gap-2" aria-live="polite" aria-busy={loading}>
           {loading && (
             <div className="flex items-center gap-2 text-cyan-700 text-sm">
               <Loader2 size={16} className="animate-spin" /> 正在从 DeepSeek 获取最新资讯...
