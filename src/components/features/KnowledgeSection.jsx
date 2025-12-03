@@ -315,6 +315,24 @@ const KnowledgeSection = () => {
                 <span className="bar" />
                 <h2>知识体系</h2>
                 <span className="pill-soft">按科目 · 分类 · 子类浏览</span>
+                <div className="ml-auto flex gap-2 text-xs">
+                    <a
+                        href="/knowledge_summary.md"
+                        className="px-3 py-1 rounded-full border border-slate-200 text-slate-600 hover:text-cyan-600 hover:border-cyan-300 transition"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        下载汇总
+                    </a>
+                    <a
+                        href="/knowledge_shortlist.md"
+                        className="px-3 py-1 rounded-full border border-slate-200 text-slate-600 hover:text-cyan-600 hover:border-cyan-300 transition"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        冲刺清单
+                    </a>
+                </div>
             </div>
 
             {/* Subject Tabs */}

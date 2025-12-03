@@ -13,6 +13,8 @@ React + Vite 前端，用于整理考研数学一、计算机 408、英语一、
 - 冲刺 20 天日程表：`STUDY_PLAN_20DAYS.md`
 - 知识点与预测汇总：`EXAM_PREDICTION.md`
 - 数据源：`src/data/knowledge/*.js`（按科目拆分）
+- 知识点快速导览：`public/knowledge_summary.md`
+- 冲刺 30 条清单：`public/knowledge_shortlist.md`
 
 ## 项目结构
 - `src/components/`：页面与组件
