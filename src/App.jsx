@@ -135,30 +135,63 @@ function App() {
       default:
         return (
           <>
-            <div className="mb-10" id="timeline-board">
-              <ExamTimeline />
-              <SourceBoard />
-              <KeywordGrid />
-              <RuleAccordion />
-            </div>
             <Hero />
-            <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} inputRef={searchInputRef} />
-            <div className="mb-8" id="news">
-              <NewsBar />
+
+            <div className="section-block" id="timeline-board">
+              <div className="section-title-bar mb-4">
+                <span className="bar" />
+                <h2>关键时间线与规则速览</h2>
+                <span className="pill-soft">时间 / 规则 / 热词</span>
+              </div>
+              <div className="grid gap-4 lg:grid-cols-3">
+                <div className="lg:col-span-2 space-y-4">
+                  <ExamTimeline />
+                  <SourceBoard />
+                </div>
+                <div className="space-y-4">
+                  <KeywordGrid />
+                  <RuleAccordion />
+                </div>
+              </div>
             </div>
-            <div className="mb-8" id="hot-exam">
-              <HotExamSection />
+
+            <div className="section-block">
+              <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} inputRef={searchInputRef} />
             </div>
-            <div className="mb-10">
+
+            <div className="grid gap-6 lg:grid-cols-5">
+              <div className="lg:col-span-3 section-block" id="news">
+                <div className="section-title-bar mb-2">
+                  <span className="bar" />
+                  <h2>考研资讯快报</h2>
+                </div>
+                <NewsBar />
+              </div>
+              <div className="lg:col-span-2 section-block" id="hot-exam">
+                <div className="section-title-bar mb-2">
+                  <span className="bar" />
+                  <h2>高频考点 & OCR 榜单</h2>
+                </div>
+                <HotExamSection />
+              </div>
+            </div>
+
+            <div className="section-block">
+              <div className="section-title-bar mb-4">
+                <span className="bar" />
+                <h2>趋势洞察</h2>
+                <span className="pill-soft">近 7 日</span>
+              </div>
               <TrendWidget />
             </div>
-            <div className="mb-14" id="resources">
-              <div className="flex items-center justify-between mb-6 px-2">
-                <h2 className="text-2xl font-bold text-slate-900 flex items-center gap-3">
-                  <span className="w-1 h-8 bg-gradient-to-b from-blue-500 to-cyan-500 rounded-full" />
-                  精选资料
-                </h2>
-                <span className="text-slate-500 text-sm bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+
+            <div className="section-block" id="resources">
+              <div className="flex items-center justify-between mb-6 px-1 flex-wrap gap-3">
+                <div className="section-title-bar mb-0">
+                  <span className="bar" />
+                  <h2>精选资料</h2>
+                </div>
+                <span className="text-slate-600 text-sm bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
                   共 {filteredResources.length} 个资源
                 </span>
               </div>
@@ -177,12 +210,12 @@ function App() {
       <main
         id="main-content"
         role="main"
-        className="min-h-screen px-4 md:px-8 lg:px-16 pb-20 overflow-x-hidden relative"
+        className="min-h-screen px-4 md:px-8 lg:px-16 pb-20 overflow-x-hidden relative page-shell"
       >
         <h1 className="sr-only">2026 考研资料站关键时间线与备考资源</h1>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto space-y-8">
           {renderPage()}
-          <footer className="text-center text-slate-500 text-sm py-12 border-t border-slate-200 mt-16">
+          <footer className="text-center text-slate-500 text-sm py-12 border-t border-slate-200 mt-8">
             <p className="mb-1">(c) 2025 考研资料站 | Designed for Excellence</p>
             <p className="text-xs text-slate-400">Powered by DeepSeek AI</p>
           </footer>

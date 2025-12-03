@@ -40,21 +40,28 @@ const ResourceCard = ({ resource }) => {
     return (
         <Card hover className="flex flex-col h-full group">
             <div className="flex justify-between items-start mb-6">
-                <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:bg-slate-200">
-                    <FileText size={24} className="text-slate-600 group-hover:text-slate-800" />
-                </div>
-                <div className="flex flex-col items-end gap-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 group-hover:bg-slate-200">
+                      <FileText size={24} className="text-slate-600 group-hover:text-slate-800" />
+                  </div>
+                  <div className="flex flex-col gap-1">
                     <Badge variant={getCategoryColor(resource.category)}>
                         {resource.category === 'Math' ? '数学一' :
                           resource.category === '408' ? '计算机408' :
                           resource.category === 'English' ? '英语一' :
                           resource.category === 'Politics' ? '政治' : resource.category}
                     </Badge>
-                    <span className="text-xs text-slate-500 font-mono flex items-center gap-1">
+                    <span className="text-[11px] text-slate-500 font-mono flex items-center gap-1">
                         <HardDrive size={10} />
                         {resource.size}
                     </span>
+                  </div>
                 </div>
+                {resource.type && (
+                  <span className="text-[11px] uppercase tracking-wide px-2 py-1 rounded-full bg-slate-50 border border-slate-200 text-slate-600">
+                    {resource.type}
+                  </span>
+                )}
             </div>
 
             <h3 className="text-lg font-bold mb-3 text-slate-900 group-hover:text-cyan-600 transition-colors line-clamp-2">
