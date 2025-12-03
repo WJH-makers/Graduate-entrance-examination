@@ -6,7 +6,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, inputRef }) => {
   return (
     <div className="relative max-w-2xl mx-auto mb-16 z-20">
       {/* Glow Effect */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-violet-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
+      <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-amber-400 to-cyan-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000 group-hover:duration-200" />
 
       <Input
         ref={inputRef}

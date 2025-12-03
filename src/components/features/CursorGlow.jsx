@@ -34,7 +34,7 @@ const CursorGlow = () => {
           left: pos.x - 160,
           top: pos.y - 160,
           background:
-            "radial-gradient(circle, rgba(139,92,246,0.35) 0%, rgba(34,211,238,0.25) 30%, rgba(15,23,42,0) 60%)"
+            "radial-gradient(circle, rgba(14,165,233,0.35) 0%, rgba(245,158,11,0.25) 30%, rgba(15,23,42,0) 60%)"
         }}
       />
     </div>

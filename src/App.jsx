@@ -183,7 +183,7 @@ function App() {
         <div className="max-w-7xl mx-auto">
           {renderPage()}
           <footer className="text-center text-slate-500 text-sm py-12 border-t border-slate-200 mt-16">
-            <p className="mb-1">© 2025 考研资料站 | Designed for Excellence</p>
+            <p className="mb-1">(c) 2025 考研资料站 | Designed for Excellence</p>
             <p className="text-xs text-slate-400">Powered by DeepSeek AI</p>
           </footer>
         </div>
@@ -212,5 +212,6 @@ const Loading = () => (
 );
 
 export default App;
+
 
 

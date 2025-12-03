@@ -46,8 +46,8 @@ const ParticleBackground = () => {
         const px = p.x * canvas.width;
         const py = p.y * canvas.height;
         const grad = ctx.createRadialGradient(px, py, 0, px, py, p.r * 16 * dpi);
-        grad.addColorStop(0, "rgba(34,211,238,0.35)");
-        grad.addColorStop(1, "rgba(34,211,238,0)");
+        grad.addColorStop(0, "rgba(14,165,233,0.32)");
+        grad.addColorStop(1, "rgba(245,158,11,0)");
         ctx.fillStyle = grad;
         ctx.beginPath();
         ctx.arc(px, py, p.r * 10 * dpi, 0, Math.PI * 2);
