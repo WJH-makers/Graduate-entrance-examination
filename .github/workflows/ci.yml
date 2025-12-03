@@ -1,0 +1,40 @@
+name: CI Lint Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Generate knowledge sheets
+        run: npm run generate:knowledge
+
+      - name: Upload knowledge artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: knowledge-md
+          path: |
+            public/knowledge_summary.md
+            public/knowledge_shortlist.md

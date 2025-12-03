@@ -1,10 +1,19 @@
 import React from 'react'
 import { sectionClasses } from '../../constants/theme'
 
-const SectionShell = ({ title, description, badge, actions, children, className = '' }) => {
+const SectionShell = ({
+  title,
+  description,
+  badge,
+  actions,
+  children,
+  className = '',
+  ...rest
+}) => {
+  const composed = `${sectionClasses} p-5 md:p-6 space-y-3 ${className}`.trim()
   return (
-    <section className={`${sectionClasses} ${className}`}>
-      <div className="flex items-start gap-3 mb-4">
+    <section className={composed} {...rest}>
+      <div className="flex items-start gap-3 mb-2">
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <span className="w-1 h-8 bg-gradient-to-b from-cyan-500 to-amber-400 rounded-full" />

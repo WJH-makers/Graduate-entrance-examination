@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --bg-color: #f6f9fd;
@@ -10,12 +10,33 @@
   --panel-bg: rgba(255, 255, 255, 0.94);
   --border-color: rgba(148, 163, 184, 0.28);
   --shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  --shadow-layer: 0 18px 60px rgba(15, 23, 42, 0.08);
+  --radius-md: 14px;
   --radius-lg: 18px;
+  --radius-xl: 24px;
+  --card-padding: 18px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --container-width: 1200px;
+  --font-sans:
+    'Manrope', 'Inter', 'SF Pro Display', -apple-system, system-ui, 'PingFang SC',
+    'Microsoft YaHei', sans-serif;
+  --font-display:
+    'Clash Display', 'Manrope', 'Inter', 'SF Pro Display', -apple-system, system-ui, sans-serif;
+  --font-body: 16px;
+  --font-label: 12px;
+  --font-h2: clamp(22px, 3vw, 28px);
 }
 
 body {
   margin: 0;
-  font-family: "Inter", "SF Pro Display", -apple-system, system-ui, sans-serif;
+  font-family: var(--font-sans);
+  font-size: var(--font-body);
   background-color: var(--bg-color);
   color: var(--text-color);
   min-height: 100vh;
@@ -23,15 +44,39 @@ body {
   background-image:
     radial-gradient(circle at 16% 30%, rgba(14, 165, 233, 0.16) 0%, transparent 26%),
     radial-gradient(circle at 82% 22%, rgba(245, 158, 11, 0.14) 0%, transparent 24%),
-    linear-gradient(120deg, rgba(255,255,255,0.72) 0, rgba(255,255,255,0.36) 32%, transparent 46%),
-    repeating-linear-gradient(90deg, rgba(148,163,184,0.08) 0, rgba(148,163,184,0.08) 1px, transparent 1px, transparent 26px),
-    repeating-linear-gradient(0deg, rgba(148,163,184,0.08) 0, rgba(148,163,184,0.08) 1px, transparent 1px, transparent 26px);
-  background-size: auto, auto, auto, 28px 28px, 28px 28px;
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.72) 0,
+      rgba(255, 255, 255, 0.36) 32%,
+      transparent 46%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(148, 163, 184, 0.08) 0,
+      rgba(148, 163, 184, 0.08) 1px,
+      transparent 1px,
+      transparent 26px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(148, 163, 184, 0.08) 0,
+      rgba(148, 163, 184, 0.08) 1px,
+      transparent 1px,
+      transparent 26px
+    );
+  background-size:
+    auto,
+    auto,
+    auto,
+    28px 28px,
+    28px 28px;
   position: relative;
 }
 
 .interactive-tilt {
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease;
   will-change: transform;
 }
 .interactive-tilt:hover {
@@ -79,7 +124,7 @@ body {
 }
 
 .page-shell {
-  max-width: 1200px;
+  max-width: var(--container-width);
   margin: 0 auto;
   width: 100%;
 }
@@ -87,9 +132,9 @@ body {
 .section-block {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(148, 163, 184, 0.18);
-  border-radius: 24px;
-  box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
-  padding: 18px 18px 22px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-layer);
+  padding: var(--card-padding);
 }
 
 .section-block + .section-block {
@@ -112,9 +157,11 @@ body {
 
 .section-title-bar h2 {
   margin: 0;
-  font-size: 22px;
+  font-size: var(--font-h2);
+  font-family: var(--font-display);
   font-weight: 800;
   color: #0f172a;
+  letter-spacing: -0.01em;
 }
 
 .section-heading {
@@ -122,7 +169,7 @@ body {
   align-items: center;
   gap: 10px;
   padding: 8px 14px;
-  background: linear-gradient(120deg, rgba(14,165,233,0.08), rgba(245,158,11,0.08));
+  background: linear-gradient(120deg, rgba(14, 165, 233, 0.08), rgba(245, 158, 11, 0.08));
   border: 1px solid rgba(148, 163, 184, 0.2);
   border-radius: 999px;
   font-weight: 700;
@@ -199,18 +246,38 @@ body {
 }
 
 /* Light theme overrides so白底文字可见 */
-.text-white { color: #0f172a !important; }
-.text-gray-300 { color: #1f2937 !important; }
-.text-gray-400 { color: #334155 !important; }
-.text-gray-500 { color: #475569 !important; }
-.text-gray-600 { color: #0f172a !important; }
-.bg-white\/5 { background-color: rgba(255,255,255,0.94) !important; }
-.bg-white\/10 { background-color: rgba(255,255,255,0.9) !important; }
-.bg-white\/20 { background-color: rgba(255,255,255,0.86) !important; }
+.text-white {
+  color: #0f172a !important;
+}
+.text-gray-300 {
+  color: #1f2937 !important;
+}
+.text-gray-400 {
+  color: #334155 !important;
+}
+.text-gray-500 {
+  color: #475569 !important;
+}
+.text-gray-600 {
+  color: #0f172a !important;
+}
+.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.94) !important;
+}
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+.bg-white\/20 {
+  background-color: rgba(255, 255, 255, 0.86) !important;
+}
 .border-white\/5,
 .border-white\/10,
-.border-white\/20 { border-color: rgba(148,163,184,0.35) !important; }
-.placeholder-gray-500::placeholder { color: #94a3b8 !important; }
+.border-white\/20 {
+  border-color: rgba(148, 163, 184, 0.35) !important;
+}
+.placeholder-gray-500::placeholder {
+  color: #94a3b8 !important;
+}
 
 /* LaTeX Formula Styling */
 .latex-content .katex {
