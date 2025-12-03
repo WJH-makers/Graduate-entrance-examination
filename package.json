@@ -10,12 +10,14 @@
     "preview": "vite preview",
     "crawl:news": "node scripts/crawl-news.js",
     "audit:knowledge": "node scripts/audit-knowledge.js",
-    "format": "prettier -w \"src/**/*.{js,jsx,css}\"",
+    "format": "prettier -w \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
     "stylelint": "stylelint \"src/**/*.{css,pcss}\"",
     "preview:start": "npm run preview -- --host 127.0.0.1 --port 4173",
     "test:axe": "npm run build && WAIT_ON_TIMEOUT=120000 start-server-and-test preview:start http://127.0.0.1:4173 \"axe http://127.0.0.1:4173 --timeout 60000 --exit\"",
     "test:lighthouse": "echo \"skip lhci in CI\"",
-    "visualize": "vite build --report"
+    "visualize": "vite build --report",
+    "prepare": "husky install",
+    "generate:knowledge": "node scripts/generate-knowledge.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
@@ -55,6 +57,14 @@
     "stylelint-config-recommended": "9.0.0",
     "stylelint-config-standard": "28.0.0",
     "tailwindcss": "^4.1.17",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,css,md}": [
+      "prettier -w",
+      "eslint --fix"
+    ]
   }
 }
