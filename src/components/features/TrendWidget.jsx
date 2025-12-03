@@ -29,24 +29,31 @@ const cards = [
 
 const TrendWidget = () => {
   return (
-    <div className="grid gap-3 md:grid-cols-3">
+    <div className="section-block">
+      <div className="section-title-bar mb-4">
+        <span className="bar" />
+        <h2>趋势热力</h2>
+        <span className="pill-soft">7 日微趋势</span>
+      </div>
+      <div className="grid gap-3 md:grid-cols-3">
       {cards.map((item) => (
         <Card
           key={item.title}
           hover
-          className="p-4 bg-white/5 border-white/10 relative overflow-hidden"
+          className="p-4 bg-white relative overflow-hidden border border-slate-200"
         >
           <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2 text-sm text-gray-200">
-              <item.icon size={16} className="text-cyan-200" />
+            <div className="flex items-center gap-2 text-sm text-slate-900">
+              <item.icon size={16} className="text-cyan-500" />
               {item.title}
             </div>
-            <span className="text-[10px] text-gray-400">实时微趋势</span>
+            <span className="text-[10px] text-slate-500">实时微趋势</span>
           </div>
           <Sparkline data={item.data} stroke={item.color} />
-          <p className="text-xs text-gray-400 mt-2">{item.note}</p>
+          <p className="text-xs text-slate-600 mt-2">{item.note}</p>
         </Card>
       ))}
+      </div>
     </div>
   );
 };
