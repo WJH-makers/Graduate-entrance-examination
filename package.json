@@ -19,7 +19,8 @@
     "prepare": "husky install",
     "generate:knowledge": "node scripts/generate-knowledge.mjs",
     "clarify:knowledge": "node scripts/clarify-knowledge.mjs",
-    "test:smoke": "npm run build && node scripts/smoke-test.mjs"
+    "test:smoke": "npm run build && node scripts/smoke-test.mjs",
+    "test:e2e": "npm run build && npm run preview -- --host 127.0.0.1 --port 4173 & playwright test --config tests/playwright.config.js && kill $(Get-Process -Name node -ErrorAction SilentlyContinue | Select-Object -First 1 -Expand Id)"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.11",
@@ -42,8 +43,10 @@
   },
   "devDependencies": {
     "@axe-core/cli": "^4.10.0",
+    "@axe-core/playwright": "^4.11.0",
     "@eslint/js": "^9.39.1",
     "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4.1.17",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
