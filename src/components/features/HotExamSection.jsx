@@ -19,12 +19,13 @@ import { ocrKeywords } from '@/data/ocrKeywords'
 import { pkuAiRules } from '@/data/pkuAiRules'
 import { beijingMarking } from '@/data/beijingMarking'
 
-const HotExamSection = () => {
+const HotExamSection = ({ variant = 'card' }) => {
   const [liveLinks, setLiveLinks] = useState(null)
   const [showAllTimeline, setShowAllTimeline] = useState(false)
   const [showAllLinks, setShowAllLinks] = useState(false)
   const [showAllRules, setShowAllRules] = useState(false)
   const [showModal, setShowModal] = useState(false)
+  const enableModal = variant !== 'standalone'
 
   useEffect(() => {
     fetch('/news-latest.json', { cache: 'no-store' })
@@ -50,13 +51,15 @@ const HotExamSection = () => {
         title="今年高频考点 & 关键节点"
         description="提炼三类信息：预测题型、时间线/权威信息、OCR 高频与复试要点"
         actions={
-          <button
-            type="button"
-            onClick={() => setShowModal(true)}
-            className="text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-amber-400 text-white shadow-sm hover:shadow-md transition"
-          >
-            全屏查看
-          </button>
+          enableModal ? (
+            <button
+              type="button"
+              onClick={() => setShowModal(true)}
+              className="text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-amber-400 text-white shadow-sm hover:shadow-md transition"
+            >
+              全屏查看
+            </button>
+          ) : null
         }
       >
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-2 auto-rows-fr">
@@ -223,7 +226,7 @@ const HotExamSection = () => {
         </div>
       </SectionShell>
 
-      {showModal && (
+      {enableModal && showModal && (
         <div className="fixed inset-0 z-50">
           <div
             className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"

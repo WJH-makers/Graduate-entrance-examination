@@ -4,7 +4,6 @@ import SearchBar from '@/components/features/SearchBar'
 import ResourceGrid from '@/components/features/ResourceGrid'
 import NewsBar from '@/components/features/NewsBar'
 import TrendWidget from '@/components/features/TrendWidget'
-import HotExamSection from '@/components/features/HotExamSection'
 import ExamTimeline from '@/components/features/ExamTimeline'
 import SourceBoard from '@/components/features/SourceBoard'
 import KeywordGrid from '@/components/features/KeywordGrid'
@@ -48,16 +47,9 @@ const HomePage = ({ searchTerm, setSearchTerm, searchInputRef, filteredResources
         />
       </SectionShell>
 
-      <div className="grid gap-6 lg:grid-cols-5">
-        <div className="lg:col-span-3">
-          <SectionShell title="考研资讯快报" badge="自动汇总" id="news">
-            <NewsBar />
-          </SectionShell>
-        </div>
-        <div className="lg:col-span-2" id="hot-exam">
-          <HotExamSection />
-        </div>
-      </div>
+      <SectionShell title="考研资讯快报" badge="自动汇总" id="news">
+        <NewsBar />
+      </SectionShell>
 
       <SectionShell title="趋势洞察" badge="近 7 日">
         <TrendWidget />
