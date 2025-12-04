@@ -33,7 +33,7 @@ const ensureSecondary = (item) => {
   while (set.size < 2) {
     push(`重点：掌握 ${item.title} 的定义与典型题。`)
   }
-  return Array.from(set).slice(0, 4)
+  return Array.from(set).slice(0, 6)
 }
 
 const explain = (item) => {
@@ -89,6 +89,16 @@ Object.entries(subjects).forEach(([subject, items]) => {
       lines.push(`- **${item.title}** (难度: ${item.difficulty || '—'}, 高频: ${item.frequency ?? '—'})`)
       lines.push(`  - 讲解：${explain(item)}`)
       sec.forEach((s) => lines.push(`  - 二级结论：${s}`))
+      if (item.mistakes?.length) {
+        lines.push(`  - 易错点：${item.mistakes.slice(0, 3).join('；')}`)
+      }
+      if (item.examTips?.length) {
+        lines.push(`  - 应试提示：${item.examTips.slice(0, 2).join('；')}`)
+      }
+      if (item.classicProblems?.length) {
+        const cp = item.classicProblems[0]
+        lines.push(`  - 例题：${cp.title || '典型题'} — ${cp.description || ''}`)
+      }
     })
     lines.push('')
   })
