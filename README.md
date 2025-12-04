@@ -27,6 +27,7 @@ React + Vite 前端，用于整理考研数学一、计算机 408、英语一、
 - 页面分层：`src/pages/` 持有 Home/Knowledge/Plan/Workbench 页面骨架；`App.jsx` 仅负责路由/快捷键。
 - 路径别名：`@` 指向 `src/`（见 `vite.config.js`、`jsconfig.json`）。
 - 快速冒烟测试：`npm run test:smoke`（build 后检查 dist 关键产物）；可在预览或部署前先运行。
+- 详细架构文档：见 `docs/ARCHITECTURE.md`。
 
 ## 项目结构
 - `src/components/`：页面与组件
