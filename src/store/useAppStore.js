@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware'
 const resolveInitialPage = () => {
   if (typeof window === 'undefined') return 'home'
   const hash = window.location.hash.replace('#', '')
-  return ['home', 'hot', 'knowledge', 'plan', 'workbench'].includes(hash) ? hash : 'home'
+  return ['home', 'knowledge', 'plan', 'workbench'].includes(hash) ? hash : 'home'
 }
 
 export const useAppStore = create(
