@@ -9,6 +9,9 @@ React + Vite 前端，用于整理考研数学一、计算机 408、英语一、
 - 代码检查：`npm run lint`
 - 知识库审计：`npm run audit:knowledge`
 - 生成知识导览/冲刺清单：`npm run generate:knowledge`
+- 代理模式启动：`npm run serve:proxy`（需要 `.env` 配置 `DEEPSEEK_API_KEY`；前端可设 `VITE_API_BASE=http://localhost:8787/api/deepseek`、`VITE_USE_PROXY=true`）
+- 冒烟测试：`npm run test:smoke`
+- E2E + a11y：`npm run test:e2e`
 
 ## 重要资料
 - 冲刺 20 天日程表：`STUDY_PLAN_20DAYS.md`
