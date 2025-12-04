@@ -1138,4 +1138,47 @@ export const englishKnowledge = [
       '背词时连同搭配，如 reduce carbon emission, ensure data privacy, compulsory education。',
     ],
   },
+  {
+    id: 'e_theme_ai',
+    category: 'Reading',
+    subcategory: 'Themes',
+    title: '科技/AI/伦理主题阅读',
+    difficulty: 'Medium',
+    importance: 4,
+    frequency: 6,
+    tags: ['AI', 'ethics', 'environment'],
+    content:
+      '积累科技伦理、隐私、公平、碳排放、医疗伦理等高频话题词：privacy, bias, accountability, carbon footprint, surveillance, gene editing, sustainability。',
+    examTips: ['定位观点句：对比转折处；注意作者态度词。'],
+    secondaryConclusions: [
+      '态度词：prudent, cautious, skeptical, optimistic。',
+      '常见论证套路：风险提示→条件支持→监管框架。',
+    ],
+  },
+  {
+    id: 'e_writing_arg',
+    category: 'Writing',
+    subcategory: 'Argument Essay',
+    title: '议论文全替代表',
+    difficulty: 'Medium',
+    importance: 5,
+    frequency: 7,
+    tags: ['写作', '模板', 'argument'],
+    content: '结构：开头立场句 + 两分论点（原因/案例）+ 让步/反驳 + 结论号召；保持 180-220 词。',
+    classicProblems: [
+      {
+        title: '开头句模板',
+        description: 'In recent years, ___ has sparked heated debate. I firmly believe that ...',
+        solution: '点题 + 立场明确，为后文分论点埋钩子。',
+      },
+    ],
+    examTips: [
+      '每段首句点题；使用 however / moreover / furthermore / in addition / in conclusion 串联。',
+    ],
+    secondaryConclusions: [
+      '让步句：While I acknowledge that..., I still contend that...',
+      '结论句：Only by joint efforts of government and individuals can we ...',
+      '论据组合：数据 + 专家 + 个人经验（三选二）。',
+    ],
+  },
 ]

@@ -2666,4 +2666,60 @@ export const cs408Knowledge = [
     ],
     examTips: ['考试常要求画冲突图并给出着色顺序。', '若无法着色，说明需要溢出并重新构图。'],
   },
+  {
+    id: 'cs_ai_basics',
+    category: 'Computer Networks & Systems',
+    subcategory: 'AI Computing Basics',
+    title: 'AI 基础与硬件加速（了解）',
+    difficulty: 'Medium',
+    importance: 3,
+    frequency: 6,
+    tags: ['AI', '梯度下降', 'GPU', '并行'],
+    content:
+      '了解线性分类/感知机的梯度下降迭代思想，过拟合与正则化概念；认识 GPU/矩阵乘加速对训练的影响。',
+    classicProblems: [
+      {
+        title: '梯度下降更新',
+        description: '感知机一次更新公式？',
+        solution: 'w ← w + η·y·x, b ← b + η·y（误分类样本）。',
+      },
+    ],
+    mistakes: ['把学习率写成可变符号；忽略正则项对梯度的影响'],
+    detailedAnalysis:
+      '考点以“了解”为主，更多考查对并行/硬件加速的认识：矩阵乘/卷积可用 SIMD/GPU；批量与小批量梯度的差别在噪声与吞吐。',
+    examTips: ['回答并行/加速时强调：数据并行 + 矩阵乘加速 + 显存带宽瓶颈。'],
+    secondaryConclusions: [
+      '小批量梯度在收敛平滑与吞吐间折中；批量过小噪声大，过大易陷局部平坦区。',
+      'L2 正则对应权重衰减；L1 促稀疏。',
+      'GPU 对矩阵乘/卷积最有效；随机访问型算法收益有限。',
+    ],
+  },
+  {
+    id: 'cs_container',
+    category: 'Operating Systems',
+    subcategory: 'Processes & Scheduling',
+    title: '容器与虚拟化（扩展）',
+    difficulty: 'Medium',
+    importance: 4,
+    frequency: 6,
+    tags: ['OS', '容器', 'namespace', 'cgroup'],
+    content:
+      '理解 Linux namespace（pid/net/mount/ipc/uts/user）提供视图隔离，cgroup 提供配额与限流；调度上仍基于宿主机内核。',
+    classicProblems: [
+      {
+        title: '容器资源限制',
+        description: '如何限制容器 CPU 与内存？',
+        solution:
+          'cgroup 的 cpu.shares/ quota 与 memory.limit_in_bytes；namespace 不负责配额，只隔离视图。',
+      },
+    ],
+    mistakes: ['把 namespace 当成资源配额；忽略宿主机内核共享'],
+    detailedAnalysis:
+      '容器 ≈ 进程 + namespace + cgroup；虚拟机有独立内核。考点常作为调度/进程管理的扩展或概念题。',
+    examTips: ['回答差异：容器轻量、启动快但隔离弱；虚拟机隔离强但开销大。'],
+    secondaryConclusions: [
+      '常考匹配：namespace→视图隔离；cgroup→资源限制。',
+      '容器调度仍由宿主机 CFS/调度器完成。',
+    ],
+  },
 ]

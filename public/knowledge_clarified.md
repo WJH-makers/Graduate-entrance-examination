@@ -1,5 +1,5 @@
 # Clarified Knowledge Points
-生成时间：2025-12-04T00:14:54.433Z
+生成时间：2025-12-04T02:14:14.072Z
 
 ## Math 重点 Top30（按频度排序，出题概率：高/中/低）
 - 1. 无穷小比阶（分类：Calculus / Limits & Continuity；频度=10；概率=高)
@@ -1089,6 +1089,28 @@
   - 二级结论：先写参数范围再计算叉积模长。
   - 二级结论：对称曲面可选最简参数避免三角复杂度。
 
+### Probability / Bayesian Inference
+- **贝叶斯统计与共轭先验** (难度: Medium, 高频: 8)
+  - 讲解：后验 ∝ 似然 × 先验；共轭的好处是参数维度封闭。Beta-Bernoulli、Gamma-Poisson、Normal-Normal 是最常考三组。
+  - 二级结论：后验均值 = (α+成功)/(α+β+样本量)。
+  - 二级结论：Beta-Bernoulli：先验 α,β；后验 α+成功, β+失败。
+  - 二级结论：Gamma-Poisson：后验形状/率累加；Normal-Normal：精度加和、均值加权。
+  - 二级结论：0-1 损失下 MAP = 后验众数；平方损失下贝叶斯估计=后验均值。
+- **后验预测与可信区间** (难度: Medium, 高频: 6)
+  - 讲解：可信区间是“参数落入区间的后验概率”，与频率派的重复抽样含义不同。预测分布通过对参数积分体现不确定性传播。
+  - 二级结论：预测分布 = ∫ p(x_new|θ)p(θ|D)dθ。
+  - 二级结论：Beta-Bernoulli：预测成功概率期望 = α/(α+β)。
+  - 二级结论：可信区间随先验/数据同时变化；样本越多后验越尖锐。
+  - 二级结论：遇到“下一次/未来观测”优先写预测分布，而非直接代后验均值。
+
+### Calculus / Multiple Integrals
+- **二重积分应用与坐标变换** (难度: Medium, 高频: 6)
+  - 讲解：先画域再决定坐标系；对称域可用 2×半域；极坐标常见：圆、扇形；椭圆可线性变换到单位圆。
+  - 二级结论：矩形域→极坐标慎用，优先保持直角系。
+  - 二级结论：对称域：若 f(r) 与 θ 无关，可拆成径向×角向乘积。
+  - 二级结论：写出雅可比：J=r；若被积函数仅依赖 r，θ 直接给 2π。
+  - 二级结论：避免误区：忘记雅可比 r；未利用对称性简化；误写积分域
+
 ## 计算机408 重点 Top30（按频度排序，出题概率：高/中/低）
 - 1. 2024 真题侧重点（分类：Exam Year / 2024；频度=10；概率=高)
 - 2. 2025 真题趋势预判（分类：Exam Year / 2025；频度=10；概率=高)
@@ -1106,20 +1128,20 @@
 - 14. 排序与查找高频点（OCR 模拟卷）（分类：Data Structures / Search & Sort；频度=7；概率=中)
 - 15. B树与B+树（分类：Data Structures / Search & Sort；频度=6；概率=中)
 - 16. 电子邮件协议（分类：Computer Networks / Application Layer；频度=6；概率=中)
-- 17. 线性表 - 顺序表与链表（分类：Data Structures / Linear Lists；频度=5；概率=低)
-- 18. 栈与队列的应用（分类：Data Structures / Stack & Queue；频度=5；概率=低)
-- 19. 二叉树遍历（分类：Data Structures / Trees；频度=5；概率=低)
-- 20. 线索二叉树（分类：Data Structures / Trees；频度=5；概率=低)
-- 21. 图的存储与遍历（分类：Data Structures / Graphs；频度=5；概率=低)
-- 22. 最小生成树 (MST)（分类：Data Structures / Graphs；频度=5；概率=低)
-- 23. 最短路径（分类：Data Structures / Graphs；频度=5；概率=低)
-- 24. 平衡二叉树 (AVL)（分类：Data Structures / Search & Sort；频度=5；概率=低)
-- 25. 快速排序（分类：Data Structures / Search & Sort；频度=5；概率=低)
-- 26. IEEE 754 浮点数（分类：Computer Organization / Data Representation；频度=5；概率=低)
-- 27. Cache 映射方式（分类：Computer Organization / Memory；频度=5；概率=低)
-- 28. 指令流水线（分类：Computer Organization / CPU；频度=5；概率=低)
-- 29. 进程状态与转换（分类：Operating Systems / Process Management；频度=5；概率=低)
-- 30. 死锁（分类：Operating Systems / Process Management；频度=5；概率=低)
+- 17. AI 基础与硬件加速（了解）（分类：Computer Networks & Systems / AI Computing Basics；频度=6；概率=中)
+- 18. 容器与虚拟化（扩展）（分类：Operating Systems / Processes & Scheduling；频度=6；概率=中)
+- 19. 线性表 - 顺序表与链表（分类：Data Structures / Linear Lists；频度=5；概率=低)
+- 20. 栈与队列的应用（分类：Data Structures / Stack & Queue；频度=5；概率=低)
+- 21. 二叉树遍历（分类：Data Structures / Trees；频度=5；概率=低)
+- 22. 线索二叉树（分类：Data Structures / Trees；频度=5；概率=低)
+- 23. 图的存储与遍历（分类：Data Structures / Graphs；频度=5；概率=低)
+- 24. 最小生成树 (MST)（分类：Data Structures / Graphs；频度=5；概率=低)
+- 25. 最短路径（分类：Data Structures / Graphs；频度=5；概率=低)
+- 26. 平衡二叉树 (AVL)（分类：Data Structures / Search & Sort；频度=5；概率=低)
+- 27. 快速排序（分类：Data Structures / Search & Sort；频度=5；概率=低)
+- 28. IEEE 754 浮点数（分类：Computer Organization / Data Representation；频度=5；概率=低)
+- 29. Cache 映射方式（分类：Computer Organization / Memory；频度=5；概率=低)
+- 30. 指令流水线（分类：Computer Organization / CPU；频度=5；概率=低)
 
 ## 计算机408
 ### Data Structures / Linear Lists
@@ -2034,6 +2056,22 @@
   - 二级结论：考试常要求画冲突图并给出着色顺序。
   - 二级结论：若无法着色，说明需要溢出并重新构图。
 
+### Computer Networks & Systems / AI Computing Basics
+- **AI 基础与硬件加速（了解）** (难度: Medium, 高频: 6)
+  - 讲解：考点以“了解”为主，更多考查对并行/硬件加速的认识：矩阵乘/卷积可用 SIMD/GPU；批量与小批量梯度的差别在噪声与吞吐。
+  - 二级结论：小批量梯度在收敛平滑与吞吐间折中；批量过小噪声大，过大易陷局部平坦区。
+  - 二级结论：L2 正则对应权重衰减；L1 促稀疏。
+  - 二级结论：GPU 对矩阵乘/卷积最有效；随机访问型算法收益有限。
+  - 二级结论：回答并行/加速时强调：数据并行 + 矩阵乘加速 + 显存带宽瓶颈。
+
+### Operating Systems / Processes & Scheduling
+- **容器与虚拟化（扩展）** (难度: Medium, 高频: 6)
+  - 讲解：容器 ≈ 进程 + namespace + cgroup；虚拟机有独立内核。考点常作为调度/进程管理的扩展或概念题。
+  - 二级结论：常考匹配：namespace→视图隔离；cgroup→资源限制。
+  - 二级结论：容器调度仍由宿主机 CFS/调度器完成。
+  - 二级结论：回答差异：容器轻量、启动快但隔离弱；虚拟机隔离强但开销大。
+  - 二级结论：避免误区：把 namespace 当成资源配额；忽略宿主机内核共享
+
 ## 英语一 重点 Top30（按频度排序，出题概率：高/中/低）
 - 1. 主旨与态度题（分类：Reading / Main Idea；频度=10；概率=高)
 - 2. 大作文三段论模板（分类：Writing / Argument；频度=10；概率=高)
@@ -2064,7 +2102,7 @@
 - 27. 2023 英语一真题脉络（分类：Exam Year / 2023；频度=8；概率=中)
 - 28. subject to 的真题用法（分类：Vocabulary / 真题例句；频度=7；概率=中)
 - 29. modest / moderate / modesty（分类：Vocabulary / 语气与态度；频度=7；概率=中)
-- 30. 定语从句（分类：Grammar / Clauses；频度=5；概率=低)
+- 30. 议论文全替代表（分类：Writing / Argument Essay；频度=7；概率=中)
 
 ## 英语一
 ### Grammar / Clauses
@@ -2418,6 +2456,21 @@
   - 二级结论：背词时连同搭配，如 reduce carbon emission, ensure data privacy, compulsory education。
   - 二级结论：重点：掌握 高频主题词包（科技/环保/教育/健康） 的定义与典型题。
 
+### Reading / Themes
+- **科技/AI/伦理主题阅读** (难度: Medium, 高频: 6)
+  - 讲解：积累科技伦理、隐私、公平、碳排放、医疗伦理等高频话题词：privacy, bias, accountability, carbon footprint, surveillance, gene editing, sustainability。
+  - 二级结论：态度词：prudent, cautious, skeptical, optimistic。
+  - 二级结论：常见论证套路：风险提示→条件支持→监管框架。
+  - 二级结论：定位观点句：对比转折处；注意作者态度词。
+
+### Writing / Argument Essay
+- **议论文全替代表** (难度: Medium, 高频: 7)
+  - 讲解：结构：开头立场句 + 两分论点（原因/案例）+ 让步/反驳 + 结论号召；保持 180-220 词。
+  - 二级结论：让步句：While I acknowledge that..., I still contend that...
+  - 二级结论：结论句：Only by joint efforts of government and individuals can we ...
+  - 二级结论：论据组合：数据 + 专家 + 个人经验（三选二）。
+  - 二级结论：每段首句点题；使用 however / moreover / furthermore / in addition / in conclusion 串联。
+
 ## 政治 重点 Top30（按频度排序，出题概率：高/中/低）
 - 1. 矛盾普遍性与特殊性（分类：Marxism / Contradiction；频度=10；概率=高)
 - 2. 2025 时政高频主题（分类：Current Affairs / Policy；频度=10；概率=高)
@@ -2508,6 +2561,10 @@
   - 讲解：创新是动力，协调是平衡，绿色是人与自然，开放是内外联动，共享是公平正义。
   - 二级结论：共享是中国特色社会主义的本质要求。
   - 二级结论：重点：掌握 新发展理念 的定义与典型题。
+- **中国式现代化五个特征** (难度: Medium, 高频: 5)
+  - 讲解：多选/辨析高频，需完整背诵，勿遗漏“和平发展”。
+  - 二级结论：本质要求：坚持党的领导；最大优势：中国特色社会主义制度。
+  - 二级结论：重点：掌握 中国式现代化五个特征 的定义与典型题。
 
 ### Mao Zhong Te / Theoretical System
 - **三个代表重要思想** (难度: Medium, 高频: 5)
@@ -2769,3 +2826,9 @@
   - 讲解：唯物史观本质题（生产力/生产关系、经济基础/上层建筑）、国际格局与和平发展、人民民主专政本质与特征等在模拟卷中频繁出现。
   - 二级结论：本质/根本类选项优先；区分“根本标志/根本任务/本质要求”。
   - 二级结论：国际关系题注意“时代主题=和平与发展”“世界多极化是趋势”。
+
+### Current Affairs / Situational Policy
+- **2025 年形势与政策要点** (难度: Medium, 高频: 4)
+  - 讲解：按月整理 2025 年国内外重大时政：两会、十四五收官举措、科技自立（先进制造/算力）、绿色双碳进展、区域一体化（成渝/长三角），国际热点（AI 治理、气候大会等）。
+  - 二级结论：关注官方通稿措辞；答题时结合当年案例作佐证。
+  - 二级结论：重点：掌握 2025 年形势与政策要点 的定义与典型题。

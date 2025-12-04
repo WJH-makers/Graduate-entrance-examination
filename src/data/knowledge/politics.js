@@ -1046,4 +1046,39 @@ export const politicsKnowledge = [
       '国际关系题注意“时代主题=和平与发展”“世界多极化是趋势”。',
     ],
   },
+  {
+    id: 'p_modernization_essence',
+    category: 'Mao Zhong Te',
+    subcategory: 'Xi Thought',
+    title: '中国式现代化五个特征',
+    difficulty: 'Medium',
+    importance: 5,
+    frequency: 5,
+    content:
+      '人口规模巨大；全体人民共同富裕；物质文明和精神文明相协调；人与自然和谐共生；走和平发展道路。',
+    classicProblem: {
+      title: '特征速记',
+      description: '五个特征如何快速记忆？',
+      solution: '“人多富足两文明，和谐和平向未来”。',
+    },
+    detailedAnalysis: '多选/辨析高频，需完整背诵，勿遗漏“和平发展”。',
+    examTips: ['本质要求：坚持党的领导；最大优势：中国特色社会主义制度。'],
+  },
+  {
+    id: 'p_policy_2025',
+    category: 'Current Affairs',
+    subcategory: 'Situational Policy',
+    title: '2025 年形势与政策要点',
+    difficulty: 'Medium',
+    importance: 4,
+    frequency: 4,
+    content:
+      '按月整理 2025 年国内外重大时政：两会、十四五收官举措、科技自立（先进制造/算力）、绿色双碳进展、区域一体化（成渝/长三角），国际热点（AI 治理、气候大会等）。',
+    classicProblem: {
+      title: '题型提示',
+      description: '形势与政策在分析题/多选题的常见切入？',
+      solution: '结合材料给出举措/影响，注意“结合实际”与“总体安全观”。',
+    },
+    examTips: ['关注官方通稿措辞；答题时结合当年案例作佐证。'],
+  },
 ]

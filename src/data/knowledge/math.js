@@ -3250,4 +3250,87 @@ export const mathKnowledge = [
       '伴随矩阵公式 A·adj(A)=det(A)E，可快速判断可逆并求 A^{-1}。',
     ],
   },
+  {
+    id: 'm_bayes',
+    category: 'Probability',
+    subcategory: 'Bayesian Inference',
+    title: '贝叶斯统计与共轭先验',
+    difficulty: 'Medium',
+    importance: 5,
+    frequency: 8,
+    tags: ['贝叶斯', '后验', '共轭', '似然'],
+    content:
+      '掌握先验/似然/后验的乘积关系，熟悉常见共轭先验对（Beta-Bernoulli、Gamma-Poisson、Normal-Normal）。',
+    classicProblems: [
+      {
+        title: '后验分布求解',
+        description: '抛硬币正面 8 次、反面 2 次，先验 Beta(1,1)，求后验分布与 MAP 估计。',
+        solution: '后验 Beta(9,3)，MAP = (9-1)/(9+3-2) = 2/3。',
+      },
+    ],
+    mistakes: ['把后验当似然；忽略共轭条件；混淆 MAP 与 MLE'],
+    detailedAnalysis:
+      '后验 ∝ 似然 × 先验；共轭的好处是参数维度封闭。Beta-Bernoulli、Gamma-Poisson、Normal-Normal 是最常考三组。',
+    examTips: ['0-1 损失下 MAP = 后验众数；平方损失下贝叶斯估计=后验均值。'],
+    secondaryConclusions: [
+      '后验均值 = (α+成功)/(α+β+样本量)。',
+      'Beta-Bernoulli：先验 α,β；后验 α+成功, β+失败。',
+      'Gamma-Poisson：后验形状/率累加；Normal-Normal：精度加和、均值加权。',
+    ],
+  },
+  {
+    id: 'm_bayes_pred',
+    category: 'Probability',
+    subcategory: 'Bayesian Inference',
+    title: '后验预测与可信区间',
+    difficulty: 'Medium',
+    importance: 4,
+    frequency: 6,
+    tags: ['预测分布', '可信区间', '贝叶斯决策'],
+    content:
+      '了解后验预测分布（对未来观测积分掉参数不确定性），区分可信区间与置信区间，掌握常见 95% 可信区间求法。',
+    classicProblems: [
+      {
+        title: '预测下一次事件',
+        description: 'Beta(α,β) 后验下，下一次成功概率的期望与方差？',
+        solution: '期望=α/(α+β)，方差=αβ/[(α+β)^2(α+β+1)]。',
+      },
+    ],
+    mistakes: ['将可信区间当频率置信区间；忽略预测分布积分步骤'],
+    detailedAnalysis:
+      '可信区间是“参数落入区间的后验概率”，与频率派的重复抽样含义不同。预测分布通过对参数积分体现不确定性传播。',
+    examTips: ['遇到“下一次/未来观测”优先写预测分布，而非直接代后验均值。'],
+    secondaryConclusions: [
+      '预测分布 = ∫ p(x_new|θ)p(θ|D)dθ。',
+      'Beta-Bernoulli：预测成功概率期望 = α/(α+β)。',
+      '可信区间随先验/数据同时变化；样本越多后验越尖锐。',
+    ],
+  },
+  {
+    id: 'm_double_integral_app',
+    category: 'Calculus',
+    subcategory: 'Multiple Integrals',
+    title: '二重积分应用与坐标变换',
+    difficulty: 'Medium',
+    importance: 4,
+    frequency: 6,
+    tags: ['二重积分', '极坐标', '雅可比'],
+    content:
+      '将二重积分用于质量/概率/面积计算，熟练直角-极坐标替换与对称性简化，熟悉雅可比行列式的写法与常用域。',
+    classicProblems: [
+      {
+        title: '极坐标转换',
+        description: '∬_D (x^2+y^2) dσ, D 为单位圆盘',
+        solution: '极坐标 r∈[0,1],θ∈[0,2π]，被积函数 r^2，面积元 r dr dθ，结果 = π/2。',
+      },
+    ],
+    mistakes: ['忘记雅可比 r；未利用对称性简化；误写积分域'],
+    detailedAnalysis:
+      '先画域再决定坐标系；对称域可用 2×半域；极坐标常见：圆、扇形；椭圆可线性变换到单位圆。',
+    examTips: ['写出雅可比：J=r；若被积函数仅依赖 r，θ 直接给 2π。'],
+    secondaryConclusions: [
+      '矩形域→极坐标慎用，优先保持直角系。',
+      '对称域：若 f(r) 与 θ 无关，可拆成径向×角向乘积。',
+    ],
+  },
 ]
