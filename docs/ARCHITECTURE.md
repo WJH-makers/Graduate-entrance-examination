@@ -44,6 +44,7 @@
   - `services/api.js` 使用 DeepSeek（OpenAI SDK `dangerouslyAllowBrowser` 开启，本地直连；生产建议后端代理）。
   - `useDeepSeek`（React Query mutation）封装聊天；`useNewsDigest`（React Query query）带本地缓存 + fallback。
   - 环境变量：`VITE_DEEPSEEK_API_KEY`（存放于 `.env`，严禁提交）。
+  - **后端代理建议**：若部署生产，改为调用后端 `/api/deepseek`，前端只持有 `VITE_API_BASE` 指向代理，避免浏览器直暴露密钥。
 
 ## 设计系统
 - 令牌：`theme.js` 定义颜色/圆角/阴影/间距/排版；`index.css` 将其落地为 CSS 变量。
@@ -51,12 +52,12 @@
 - 布局工具：`panel-grid`、`hide-scrollbar` 等公用样式在 `index.css`。
 
 ## 测试与质量门
-- Lint：`npm run lint`（ESLint）。
+- Lint：`npm run lint`（ESLint，含 import/别名限制）。
 - 冒烟：`npm run test:smoke`（build 后检查 dist 关键文件）。
 - E2E & a11y：`npm run test:e2e`
   - Playwright 配置：`tests/playwright.config.js`
   - 用例：`tests/e2e/home.spec.js`（核心板块可见）、`tests/e2e/a11y.spec.js`（axe 扫描关键区块）。
-- CI：`.github/workflows/ci.yml`（lint + build + generate:knowledge）。可按需追加 `test:smoke`/`test:e2e`。
+- CI：`.github/workflows/ci.yml`（lint + build + generate:knowledge + smoke；另有 e2e job）。
 
 ## 构建与运行
 - 开发：`npm run dev`
@@ -73,8 +74,8 @@
 - API 错误处理：`useDeepSeek`/`useNewsDigest` 均做异常兜底 + 本地缓存 fallback。
 - 资产管理：构建设置 `base: './'` 便于静态打开。
 
-## 建议改进（可择机执行）
-1) 在 CI 中新增 `npm run test:smoke` 与 `npm run test:e2e`（需安装 Playwright 浏览器）。
-2) 逐步把相对路径替换为别名（`@/...`）以减少路径变更影响。
-3) 为 features 目录按领域分子目录（例如 `components/features/knowledge/*`）配合 ESLint module boundary 检查。
-4) 将 DeepSeek 调用移到后端代理，前端仅调用自有 API，便于密钥安全与日志治理。
+## 改进路线（阶段性）
+- 在 CI 继续保持 e2e job；必要时分离为 nightly 以节约时间。
+- 渐进将相对路径替换为 `@/` 别名。
+- 如需严格模块边界，可引入 feature-sliced 目录与 ESLint module boundary 规则。
+- 生产部署时改用后端代理 DeepSeek，前端仅调用自有 API（避免暴露密钥并便于限流、日志与审计）。

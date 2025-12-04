@@ -31,6 +31,9 @@ jobs:
       - name: Generate knowledge sheets
         run: npm run generate:knowledge
 
+      - name: Smoke test build artifacts
+        run: npm run test:smoke
+
       - name: Upload knowledge artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -38,3 +41,25 @@ jobs:
           path: |
             public/knowledge_summary.md
             public/knowledge_shortlist.md
+
+  e2e:
+    runs-on: ubuntu-latest
+    needs: lint-build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: E2E + a11y
+        run: npm run test:e2e
