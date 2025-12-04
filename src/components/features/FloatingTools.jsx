@@ -1,6 +1,6 @@
-import React from 'react';
-import { Bell, ArrowUp, CalendarClock } from 'lucide-react';
-import { cn } from '../../utils/cn';
+import React from 'react'
+import { Bell, ArrowUp, CalendarClock } from 'lucide-react'
+import { cn } from '@/utils/cn'
 
 export const FloatingTools = ({ onCalendar, onReminder, onTop }) => {
   return (
@@ -8,7 +8,9 @@ export const FloatingTools = ({ onCalendar, onReminder, onTop }) => {
       <button
         type="button"
         onClick={onCalendar}
-        className={cn('w-12 h-12 rounded-full shadow-lg bg-white border border-slate-200 flex items-center justify-center hover:-translate-y-1 transition')}
+        className={cn(
+          'w-12 h-12 rounded-full shadow-lg bg-white border border-slate-200 flex items-center justify-center hover:-translate-y-1 transition'
+        )}
         aria-label="跳到关键时间线"
         title="跳到关键时间线"
       >
@@ -17,7 +19,9 @@ export const FloatingTools = ({ onCalendar, onReminder, onTop }) => {
       <button
         type="button"
         onClick={onReminder}
-        className={cn('w-12 h-12 rounded-full shadow-lg bg-white border border-slate-200 flex items-center justify-center hover:-translate-y-1 transition')}
+        className={cn(
+          'w-12 h-12 rounded-full shadow-lg bg-white border border-slate-200 flex items-center justify-center hover:-translate-y-1 transition'
+        )}
         aria-label="查看资讯提醒"
         title="查看资讯提醒"
       >
@@ -26,14 +30,16 @@ export const FloatingTools = ({ onCalendar, onReminder, onTop }) => {
       <button
         type="button"
         onClick={onTop}
-        className={cn('w-12 h-12 rounded-full shadow-lg bg-slate-900 text-white flex items-center justify-center hover:-translate-y-1 transition')}
+        className={cn(
+          'w-12 h-12 rounded-full shadow-lg bg-slate-900 text-white flex items-center justify-center hover:-translate-y-1 transition'
+        )}
         aria-label="返回顶部"
         title="返回顶部"
       >
         <ArrowUp size={18} />
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default FloatingTools;
+export default FloatingTools

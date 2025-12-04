@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from 'react'
 import { Search, RefreshCw, Sparkles, Newspaper, Loader2, Clock3 } from 'lucide-react'
-import { Card } from '../ui/Card'
-import { useNewsDigest } from '../../hooks/useNewsDigest'
-import { hotLinks } from '../../data/hotLinks'
+import { Card } from '@/components/ui/Card'
+import { useNewsDigest } from '@/hooks/useNewsDigest'
+import { hotLinks } from '@/data/hotLinks'
 
 const presets = [
   '考研 最新 政策 动态',

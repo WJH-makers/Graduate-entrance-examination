@@ -1,6 +1,6 @@
-import React from "react";
-import { Sparkles } from "lucide-react";
-import { Button } from "../ui/Button";
+import React from 'react'
+import { Sparkles } from 'lucide-react'
+import { Button } from '../ui/Button'
 
 const OptimizeButton = ({ onClick }) => {
   return (
@@ -14,7 +14,7 @@ const OptimizeButton = ({ onClick }) => {
         优化此页
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default OptimizeButton;
+export default OptimizeButton

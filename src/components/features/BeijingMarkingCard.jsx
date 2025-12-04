@@ -1,7 +1,7 @@
-import React from 'react';
-import { ClipboardCheck, Sparkles } from 'lucide-react';
-import { Card } from '../ui/Card';
-import { beijingMarking } from '../../data/beijingMarking';
+import React from 'react'
+import { ClipboardCheck, Sparkles } from 'lucide-react'
+import { Card } from '@/components/ui/Card'
+import { beijingMarking } from '@/data/beijingMarking'
 
 const BeijingMarkingCard = () => {
   return (
@@ -22,7 +22,7 @@ const BeijingMarkingCard = () => {
         </ul>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default BeijingMarkingCard;
+export default BeijingMarkingCard

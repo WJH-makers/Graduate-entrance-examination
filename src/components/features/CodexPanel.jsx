@@ -1,114 +1,114 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { Card } from "../ui/Card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/Tabs";
-import { Textarea } from "../ui/Textarea";
-import { Button } from "../ui/Button";
-import { Loader2, Sparkles, EyeOff, RefreshCcw, Check, Undo2 } from "lucide-react";
-import { useCodexChat } from "../../hooks/useCodexChat";
-import { getUXSnapshot } from "../../utils/uxSignals";
+import React, { useEffect, useMemo, useState } from 'react'
+import { Card } from '../ui/Card'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '../ui/Tabs'
+import { Textarea } from '../ui/Textarea'
+import { Button } from '../ui/Button'
+import { Loader2, Sparkles, EyeOff, RefreshCcw, Check, Undo2 } from 'lucide-react'
+import { useCodexChat } from '@/hooks/useCodexChat'
+import { getUXSnapshot } from '@/utils/uxSignals'
 
 const defaultContext = {
-  route: "home",
-  sections: ["Hero", "NewsBar", "Resources", "Knowledge", "AI Workbench"],
+  route: 'home',
+  sections: ['Hero', 'NewsBar', 'Resources', 'Knowledge', 'AI Workbench'],
   theme: {
-    accent: "cyan/purple neon grid",
-    surface: "glass morphism"
-  }
-};
+    accent: 'cyan/purple neon grid',
+    surface: 'glass morphism',
+  },
+}
 
 const extractJson = (text) => {
-  if (!text) return null;
-  const match = text.match(/```json\s*([\s\S]*?)```/i);
-  if (!match) return null;
+  if (!text) return null
+  const match = text.match(/```json\s*([\s\S]*?)```/i)
+  if (!match) return null
   try {
-    return JSON.parse(match[1]);
+    return JSON.parse(match[1])
   } catch (err) {
-    console.warn("JSON parse failed", err);
-    return null;
+    console.warn('JSON parse failed', err)
+    return null
   }
-};
+}
 
 const applyPreview = (diff, setUndo) => {
-  if (!diff) return;
-  const undo = [];
-  (diff.styles || []).forEach(({ selector, styles }) => {
-    if (!selector || !styles) return;
+  if (!diff) return
+  const undo = []
+  ;(diff.styles || []).forEach(({ selector, styles }) => {
+    if (!selector || !styles) return
     document.querySelectorAll(selector).forEach((el) => {
       Object.entries(styles).forEach(([k, v]) => {
-        const prev = el.style[k];
+        const prev = el.style[k]
         undo.push(() => {
-          el.style[k] = prev;
-        });
-        el.style[k] = v;
-      });
-    });
-  });
-  (diff.copy || []).forEach(({ selector, text }) => {
-    if (!selector || text == null) return;
+          el.style[k] = prev
+        })
+        el.style[k] = v
+      })
+    })
+  })
+  ;(diff.copy || []).forEach(({ selector, text }) => {
+    if (!selector || text == null) return
     document.querySelectorAll(selector).forEach((el) => {
-      const prev = el.innerText;
+      const prev = el.innerText
       undo.push(() => {
-        el.innerText = prev;
-      });
-      el.innerText = text;
-    });
-  });
-  setUndo(() => () => undo.reverse().forEach((fn) => fn()));
-};
+        el.innerText = prev
+      })
+      el.innerText = text
+    })
+  })
+  setUndo(() => () => undo.reverse().forEach((fn) => fn()))
+}
 
 const CodexPanel = ({ open, onClose }) => {
-  const [customPrompt, setCustomPrompt] = useState("提升页面层次感、突出考研 400+ 行动提示");
-  const [previewDiff, setPreviewDiff] = useState(null);
-  const [undoPreview, setUndoPreview] = useState(null);
+  const [customPrompt, setCustomPrompt] = useState('提升页面层次感、突出考研 400+ 行动提示')
+  const [previewDiff, setPreviewDiff] = useState(null)
+  const [undoPreview, setUndoPreview] = useState(null)
   const { send, loading, error } = useCodexChat([
     {
-      role: "system",
-      content: "Codex 会返回 rationale + JSON diff。"
-    }
-  ]);
+      role: 'system',
+      content: 'Codex 会返回 rationale + JSON diff。',
+    },
+  ])
 
   useEffect(() => {
     return () => {
-      if (undoPreview) undoPreview();
-    };
-  }, [undoPreview]);
+      if (undoPreview) undoPreview()
+    }
+  }, [undoPreview])
 
   const contextText = useMemo(() => {
-    const ux = getUXSnapshot();
+    const ux = getUXSnapshot()
     return [
       `Route: ${defaultContext.route}`,
-      `Sections: ${defaultContext.sections.join(", ")}`,
+      `Sections: ${defaultContext.sections.join(', ')}`,
       `Theme: ${defaultContext.theme.accent} / ${defaultContext.theme.surface}`,
-      `UX clicks: ${ux.clicks.map((c) => `${c.name || "anon"}x${c.count}`).join("; ") || "none"}`,
+      `UX clicks: ${ux.clicks.map((c) => `${c.name || 'anon'}x${c.count}`).join('; ') || 'none'}`,
       `Scroll depth(avg): ${ux.avgDepth}%`,
       `Errors: ${ux.errors}`,
-      `Recent events: ${ux.sample.length}`
-    ].join("\n");
-  }, []);
+      `Recent events: ${ux.sample.length}`,
+    ].join('\n')
+  }, [])
 
   const handleOptimize = async (mode) => {
     if (undoPreview) {
-      undoPreview();
-      setUndoPreview(null);
+      undoPreview()
+      setUndoPreview(null)
     }
-    setPreviewDiff(null);
+    setPreviewDiff(null)
     const reply = await send({
       mode,
       content: [
-        "页面上下文：",
+        '页面上下文：',
         contextText,
-        "请给出 rationale 和 JSON diff（copy/styles）。保持 5 项以内，小改动。",
-        `额外需求：${customPrompt}`
-      ].join("\n")
-    });
-    const parsed = extractJson(reply);
+        '请给出 rationale 和 JSON diff（copy/styles）。保持 5 项以内，小改动。',
+        `额外需求：${customPrompt}`,
+      ].join('\n'),
+    })
+    const parsed = extractJson(reply)
     if (parsed) {
-      setPreviewDiff(parsed);
-      applyPreview(parsed, setUndoPreview);
+      setPreviewDiff(parsed)
+      applyPreview(parsed, setUndoPreview)
     }
-  };
+  }
 
-  if (!open) return null;
+  if (!open) return null
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50">
@@ -149,11 +149,22 @@ const CodexPanel = ({ open, onClose }) => {
                 placeholder="告诉 Codex 想要的感觉，例如：突出行动按钮、减少视觉噪点"
               />
               <div className="flex gap-2 mt-3">
-                <Button onClick={() => handleOptimize("optimize")} disabled={loading}>
-                  {loading ? <Loader2 className="animate-spin mr-2" size={14} /> : <Sparkles size={14} className="mr-2" />}
+                <Button onClick={() => handleOptimize('optimize')} disabled={loading}>
+                  {loading ? (
+                    <Loader2 className="animate-spin mr-2" size={14} />
+                  ) : (
+                    <Sparkles size={14} className="mr-2" />
+                  )}
                   生成方案
                 </Button>
-                <Button variant="ghost" onClick={() => { if (undoPreview) undoPreview(); setUndoPreview(null); setPreviewDiff(null); }}>
+                <Button
+                  variant="ghost"
+                  onClick={() => {
+                    if (undoPreview) undoPreview()
+                    setUndoPreview(null)
+                    setPreviewDiff(null)
+                  }}
+                >
                   <Undo2 size={14} className="mr-2" /> 撤销预览
                 </Button>
               </div>
@@ -167,8 +178,12 @@ const CodexPanel = ({ open, onClose }) => {
                 placeholder="例如：强化 400+ 行动 checklist、增加记忆口决"
               />
               <div className="flex gap-2 mt-3">
-                <Button onClick={() => handleOptimize("content")} disabled={loading}>
-                  {loading ? <Loader2 className="animate-spin mr-2" size={14} /> : <Sparkles size={14} className="mr-2" />}
+                <Button onClick={() => handleOptimize('content')} disabled={loading}>
+                  {loading ? (
+                    <Loader2 className="animate-spin mr-2" size={14} />
+                  ) : (
+                    <Sparkles size={14} className="mr-2" />
+                  )}
                   生成文案
                 </Button>
               </div>
@@ -199,9 +214,10 @@ const CodexPanel = ({ open, onClose }) => {
                 <p className="text-xs text-gray-400 mb-1">Styles</p>
                 {(previewDiff.styles || []).map((s, idx) => (
                   <div key={`s${idx}`} className="text-xs text-gray-200">
-                    {s.selector}: {Object.entries(s.styles || {})
+                    {s.selector}:{' '}
+                    {Object.entries(s.styles || {})
                       .map(([k, v]) => `${k}: ${v}`)
-                      .join("; ")}
+                      .join('; ')}
                   </div>
                 ))}
               </div>
@@ -213,7 +229,7 @@ const CodexPanel = ({ open, onClose }) => {
         </Card>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CodexPanel;
+export default CodexPanel

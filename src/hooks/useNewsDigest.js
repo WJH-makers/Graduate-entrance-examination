@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
-import { newsService } from '../services/api'
-import { hotLinks } from '../data/hotLinks'
+import { newsService } from '@/services/api'
+import { hotLinks } from '@/data/hotLinks'
 
 const CACHE_KEY = 'news-digest-cache-v2'
 const MAX_ITEMS = 6

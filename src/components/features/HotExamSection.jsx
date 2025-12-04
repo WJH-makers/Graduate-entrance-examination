@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { CalendarDays, AlertTriangle, Link as LinkIcon, TrendingUp, Sparkles } from 'lucide-react'
-import { Card } from '../ui/Card'
-import SectionShell from '../layout/SectionShell'
-import { hotLinks, hotTopics, timeline } from '../../data/hotLinks'
-import { ocrTop } from '../../data/ocrTop'
-import { ocrKeywords } from '../../data/ocrKeywords'
-import { pkuAiRules } from '../../data/pkuAiRules'
-import { beijingMarking } from '../../data/beijingMarking'
+import { Card } from '@/components/ui/Card'
+import SectionShell from '@/components/layout/SectionShell'
+import { hotLinks, hotTopics, timeline } from '@/data/hotLinks'
+import { ocrTop } from '@/data/ocrTop'
+import { ocrKeywords } from '@/data/ocrKeywords'
+import { pkuAiRules } from '@/data/pkuAiRules'
+import { beijingMarking } from '@/data/beijingMarking'
 
 const HotExamSection = () => {
   const [liveLinks, setLiveLinks] = useState(null)

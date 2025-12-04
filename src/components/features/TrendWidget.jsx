@@ -1,7 +1,7 @@
 import React from 'react'
 import { Flame, Activity, BarChart3 } from 'lucide-react'
-import { Card } from '../ui/Card'
-import { Sparkline } from '../ui/Sparkline'
+import { Card } from '@/components/ui/Card'
+import { Sparkline } from '@/components/ui/Sparkline'
 
 const cards = [
   {

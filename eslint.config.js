@@ -44,4 +44,30 @@ export default defineConfig([
       'import/no-relative-parent-imports': 'warn',
     },
   },
+  {
+    // 入口/顶层文件可引用 pages
+    files: ['src/App.jsx', 'src/main.jsx'],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
+  },
+  {
+    files: ['scripts/**/*.js'],
+    rules: {
+      'import/no-relative-parent-imports': 'off',
+    },
+  },
+  {
+    files: ['server/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2020,
+      sourceType: 'module',
+      globals: {
+        ...globals.node,
+      },
+    },
+    rules: {
+      'no-undef': 'off',
+    },
+  },
 ])

@@ -1,34 +1,35 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { Command, Search, X, ArrowRight } from "lucide-react";
-import { Card } from "../ui/Card";
+import React, { useEffect, useMemo, useState } from 'react'
+import { Command, Search, X, ArrowRight } from 'lucide-react'
+import { Card } from '../ui/Card'
 
 const CommandPalette = ({ open, onClose, commands = [] }) => {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('')
 
   useEffect(() => {
     const handler = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
-        e.preventDefault();
-        onClose((v) => !v);
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault()
+        onClose((v) => !v)
       }
-      if (e.key === "Escape") onClose(false);
-    };
-    window.addEventListener("keydown", handler);
-    return () => window.removeEventListener("keydown", handler);
-  }, [onClose]);
+      if (e.key === 'Escape') onClose(false)
+    }
+    window.addEventListener('keydown', handler)
+    return () => window.removeEventListener('keydown', handler)
+  }, [onClose])
 
   const filtered = useMemo(() => {
-    if (!query) return commands;
-    return commands.filter((c) =>
-      c.label.toLowerCase().includes(query.toLowerCase())
-    );
-  }, [commands, query]);
+    if (!query) return commands
+    return commands.filter((c) => c.label.toLowerCase().includes(query.toLowerCase()))
+  }, [commands, query])
 
-  if (!open) return null;
+  if (!open) return null
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-24">
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => onClose(false)} />
+      <div
+        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        onClick={() => onClose(false)}
+      />
       <Card className="relative w-full max-w-2xl bg-white border border-slate-200 shadow-2xl pointer-events-auto">
         <div className="flex items-center gap-3 mb-3">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-amber-400 flex items-center justify-center text-white">
@@ -38,7 +39,10 @@ const CommandPalette = ({ open, onClose, commands = [] }) => {
             <p className="text-sm text-slate-900 font-semibold">Command Palette</p>
             <p className="text-xs text-slate-500">按 Ctrl/Cmd + K 随时开启；Enter 执行，Esc 关闭</p>
           </div>
-          <button className="ml-auto text-slate-500 hover:text-slate-900" onClick={() => onClose(false)}>
+          <button
+            className="ml-auto text-slate-500 hover:text-slate-900"
+            onClick={() => onClose(false)}
+          >
             <X size={16} />
           </button>
         </div>
@@ -59,8 +63,8 @@ const CommandPalette = ({ open, onClose, commands = [] }) => {
             <button
               key={c.id}
               onClick={() => {
-                c.action?.();
-                onClose(false);
+                c.action?.()
+                onClose(false)
               }}
               className="w-full text-left px-3 py-2 rounded-lg bg-white border border-slate-200 hover:border-cyan-300 hover:shadow-sm transition flex items-center gap-2"
             >
@@ -82,7 +86,7 @@ const CommandPalette = ({ open, onClose, commands = [] }) => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
-export default CommandPalette;
+export default CommandPalette

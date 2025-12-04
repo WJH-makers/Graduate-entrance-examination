@@ -1,27 +1,27 @@
-import React from 'react';
-import { LayoutGrid, BookOpen, Target, Cpu, Sparkles } from 'lucide-react';
-import { knowledgeBase } from '../../data/resources';
+import React from 'react'
+import { LayoutGrid, BookOpen, Target, Cpu, Sparkles } from 'lucide-react'
+import { knowledgeBase } from '@/data/resources'
 
 const pages = [
   { id: 'home', label: '主页', icon: LayoutGrid },
   { id: 'knowledge', label: '知识库', icon: BookOpen },
   { id: 'plan', label: '冲刺计划', icon: Target },
   { id: 'workbench', label: 'AI 工作台', icon: Cpu },
-];
+]
 
-const subjectLabel = { Math: '数学一', '408': '计算机408', English: '英语一', Politics: '政治' };
+const subjectLabel = { Math: '数学一', 408: '计算机408', English: '英语一', Politics: '政治' }
 
 const calcStats = () => {
-  const total = Object.values(knowledgeBase).reduce((sum, s) => sum + (s.sections?.length || 0), 0);
+  const total = Object.values(knowledgeBase).reduce((sum, s) => sum + (s.sections?.length || 0), 0)
   const bySubject = Object.entries(knowledgeBase).map(([k, v]) => ({
     id: k,
     count: v.sections?.length || 0,
-    label: subjectLabel[k] || k
-  }));
-  return { total, bySubject };
-};
+    label: subjectLabel[k] || k,
+  }))
+  return { total, bySubject }
+}
 
-const stats = calcStats();
+const stats = calcStats()
 
 const TopNavTabs = ({ activePage, onChange }) => {
   return (
@@ -34,8 +34,8 @@ const TopNavTabs = ({ activePage, onChange }) => {
           </div>
           <div className="flex gap-2 items-center">
             {pages.map((p) => {
-              const Icon = p.icon;
-              const active = activePage === p.id;
+              const Icon = p.icon
+              const active = activePage === p.id
               return (
                 <button
                   key={p.id}
@@ -50,21 +50,26 @@ const TopNavTabs = ({ activePage, onChange }) => {
                   <Icon size={16} />
                   {p.label}
                 </button>
-              );
+              )
             })}
           </div>
         </div>
         <div className="hidden md:flex items-center gap-3 text-xs text-slate-600">
-          <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">知识点总数：{stats.total}</span>
+          <span className="px-2 py-1 rounded-full bg-slate-100 border border-slate-200">
+            知识点总数：{stats.total}
+          </span>
           {stats.bySubject.map((s) => (
-            <span key={s.id} className="px-2.5 py-1 rounded-full bg-white border border-slate-200 shadow-sm">
+            <span
+              key={s.id}
+              className="px-2.5 py-1 rounded-full bg-white border border-slate-200 shadow-sm"
+            >
               {s.label}: {s.count}
             </span>
           ))}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TopNavTabs;
+export default TopNavTabs

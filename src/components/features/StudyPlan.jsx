@@ -1,16 +1,16 @@
-import React from 'react';
-import { CalendarDays, Target, Activity, CheckCircle2, ArrowUpRight } from 'lucide-react';
-import { Card } from '../ui/Card';
-import { Badge } from '../ui/Badge';
-import { studyPlanDays, studyAdjustments } from '../../data/studyPlan';
+import React from 'react'
+import { CalendarDays, Target, Activity, CheckCircle2, ArrowUpRight } from 'lucide-react'
+import { Card } from '@/components/ui/Card'
+import { Badge } from '@/components/ui/Badge'
+import { studyPlanDays, studyAdjustments } from '@/data/studyPlan'
 
 const colorByDay = (day) => {
-  const n = parseInt(day.replace('D', ''), 10);
-  if (n >= 14) return 'from-cyan-500/80 to-sky-500/50';
-  if (n >= 7) return 'from-violet-500/70 to-fuchsia-500/40';
-  if (n >= 2) return 'from-amber-500/80 to-orange-500/40';
-  return 'from-emerald-500/80 to-lime-500/50';
-};
+  const n = parseInt(day.replace('D', ''), 10)
+  if (n >= 14) return 'from-cyan-500/80 to-sky-500/50'
+  if (n >= 7) return 'from-violet-500/70 to-fuchsia-500/40'
+  if (n >= 2) return 'from-amber-500/80 to-orange-500/40'
+  return 'from-emerald-500/80 to-lime-500/50'
+}
 
 const StudyPlan = () => {
   return (
@@ -27,16 +27,22 @@ const StudyPlan = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         {studyPlanDays.map((item) => (
           <Card key={item.id} hover className="relative overflow-hidden">
-            <div className={`absolute inset-0 bg-gradient-to-br ${colorByDay(item.day)} opacity-10 pointer-events-none`} />
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${colorByDay(item.day)} opacity-10 pointer-events-none`}
+            />
             <div className="flex items-start justify-between mb-3 relative z-10">
               <div className="flex items-center gap-3">
-                <Badge variant="primary" className="font-mono">{item.day}</Badge>
+                <Badge variant="primary" className="font-mono">
+                  {item.day}
+                </Badge>
                 <div>
                   <p className="text-xs text-slate-500">{item.date}</p>
                   <h3 className="text-lg font-semibold text-slate-900">{item.goal}</h3>
                 </div>
               </div>
-              <Badge variant="outline" className="text-xs">{item.output}</Badge>
+              <Badge variant="outline" className="text-xs">
+                {item.output}
+              </Badge>
             </div>
             <div className="grid grid-cols-2 gap-3 text-sm text-slate-800 relative z-10">
               <PlanRow label="数学" value={item.math} />
@@ -65,14 +71,14 @@ const StudyPlan = () => {
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}
 
 const PlanRow = ({ label, value }) => (
   <div className="bg-slate-50 rounded-lg px-3 py-2 border border-slate-200">
     <p className="text-xs text-slate-500 mb-1">{label}</p>
     <p className="text-sm text-slate-900 leading-snug">{value}</p>
   </div>
-);
+)
 
-export default StudyPlan;
+export default StudyPlan

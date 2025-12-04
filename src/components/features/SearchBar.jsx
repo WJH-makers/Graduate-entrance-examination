@@ -1,6 +1,6 @@
-import React from 'react';
-import { Search } from 'lucide-react';
-import { Input } from '../ui/Input';
+import React from 'react'
+import { Search } from 'lucide-react'
+import { Input } from '@/components/ui/Input'
 
 const SearchBar = ({ searchTerm, setSearchTerm, inputRef }) => {
   return (
@@ -18,7 +18,7 @@ const SearchBar = ({ searchTerm, setSearchTerm, inputRef }) => {
         aria-label="搜索考研资料"
       />
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar

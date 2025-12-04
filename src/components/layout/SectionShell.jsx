@@ -1,5 +1,5 @@
 import React from 'react'
-import { sectionClasses } from '../../constants/theme'
+import { sectionClasses } from '@/constants/theme'
 
 const SectionShell = ({
   title,

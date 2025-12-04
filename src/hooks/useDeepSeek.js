@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react'
 import { useMutation } from '@tanstack/react-query'
-import { chatService } from '../services/api'
+import { chatService } from '@/services/api'
 
 // 最大消息历史数量，防止内存泄漏
 const MAX_MESSAGES = 50

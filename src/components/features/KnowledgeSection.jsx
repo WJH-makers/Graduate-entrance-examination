@@ -17,14 +17,14 @@ import {
   Clock3 as ClockIcon,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion' // eslint-disable-line no-unused-vars
-import { Card } from '../ui/Card'
-import { Badge } from '../ui/Badge'
-import { LatexRenderer, FormulaBlock } from '../ui/LatexRenderer'
-import { FrequencyBadge } from '../ui/FrequencyBadge'
-import { MermaidDiagram } from '../ui/MermaidDiagram'
-import { knowledgeBase } from '../../data/resources'
-import { cn } from '../../utils/cn'
-import { translateLabel as t } from '../../constants/labels'
+import { Card } from '@/components/ui/Card'
+import { Badge } from '@/components/ui/Badge'
+import { LatexRenderer, FormulaBlock } from '@/components/ui/LatexRenderer'
+import { FrequencyBadge } from '@/components/ui/FrequencyBadge'
+import { MermaidDiagram } from '@/components/ui/MermaidDiagram'
+import { knowledgeBase } from '@/data/resources'
+import { cn } from '@/utils/cn'
+import { translateLabel as t } from '@/constants/labels'
 
 // 统一知识点数据结构，确保排序/展示一致
 const normalizeSection = (section) => {
@@ -244,7 +244,6 @@ const KnowledgeSection = () => {
       '    classDef bucket fill:#06b6d4,stroke:#0891b2,stroke-width:2px,color:white,font-weight:bold;\n'
     chart += '    classDef item fill:#e0f2fe,stroke:#38bdf8,stroke-width:1px,color:#0f172a;\n'
     chart += `    ROOT[${sanitize(currentSubject.title)}]:::root\n`
-
     ;['高频', '中频', '低频'].forEach((bk, bi) => {
       const bId = `B${bi}`
       chart += `    ROOT --> ${bId}("${bk}考点"):::bucket\n`

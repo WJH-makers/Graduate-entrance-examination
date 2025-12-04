@@ -20,7 +20,8 @@
     "generate:knowledge": "node scripts/generate-knowledge.mjs",
     "clarify:knowledge": "node scripts/clarify-knowledge.mjs",
     "test:smoke": "npm run build && node scripts/smoke-test.mjs",
-    "test:e2e": "npm run build && start-server-and-test preview:start http://127.0.0.1:4173 \"playwright test --config tests/playwright.config.js\""
+    "test:e2e": "npm run build && start-server-and-test preview:start http://127.0.0.1:4173 \"playwright test --config tests/playwright.config.js\"",
+    "serve:proxy": "node server/index.js"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.11",
@@ -42,9 +43,6 @@
     "zustand": "^5.0.9"
   },
   "devDependencies": {
-    "@axe-core/playwright": "^4.10.0",
-    "@playwright/test": "^1.49.1",
-    "eslint-plugin-import": "^2.31.0",
     "@axe-core/cli": "^4.10.0",
     "@axe-core/playwright": "^4.11.0",
     "@eslint/js": "^9.39.1",
@@ -56,6 +54,7 @@
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.22",
     "eslint": "^9.39.1",
+    "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",

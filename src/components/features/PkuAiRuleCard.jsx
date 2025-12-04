@@ -1,7 +1,7 @@
-import React from 'react';
-import { ShieldCheck, Link as LinkIcon, BookOpen } from 'lucide-react';
-import { Card } from '../ui/Card';
-import { pkuAiRules } from '../../data/pkuAiRules';
+import React from 'react'
+import { ShieldCheck, Link as LinkIcon, BookOpen } from 'lucide-react'
+import { Card } from '@/components/ui/Card'
+import { pkuAiRules } from '@/data/pkuAiRules'
 
 const PkuAiRuleCard = () => {
   return (
@@ -40,7 +40,7 @@ const PkuAiRuleCard = () => {
         </div>
       </div>
     </Card>
-  );
-};
+  )
+}
 
-export default PkuAiRuleCard;
+export default PkuAiRuleCard
