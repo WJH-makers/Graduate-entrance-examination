@@ -38,7 +38,7 @@ const HotExamSection = () => {
         title="今年高频考点 & 关键节点"
         description="提炼三类信息：预测题型、时间线/权威信息、OCR 高频与复试要点"
       >
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <Card className="border-slate-200 bg-white shadow-lg shadow-cyan-100/50 flex flex-col p-4 md:p-5 h-full">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2 text-blue-600">
