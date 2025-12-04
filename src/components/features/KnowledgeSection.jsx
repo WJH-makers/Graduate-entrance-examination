@@ -26,8 +26,27 @@ import { knowledgeBase } from '@/data/resources'
 import { cn } from '@/utils/cn'
 import { translateLabel as t } from '@/constants/labels'
 
+const countSecondaryRaw = (section) => {
+  const set = new Set()
+  const push = (txt) => {
+    if (!txt) return
+    const clean = String(txt).trim()
+    if (clean) set.add(clean)
+  }
+  ;(section.secondaryConclusions || []).forEach(push)
+  ;(section.examTips || []).forEach(push)
+  ;(section.memoryTips || []).forEach(push)
+  ;(section.triggers || []).forEach((t) => push(`出现【${t}】→ 回忆本考点`))
+  ;(section.mistakes || []).forEach((m) => push(`避免误区：${m}`))
+  ;(section.classicProblems || []).forEach((p) => push(`例题：${p.description || p.title || ''}`))
+  push(section.detailedAnalysis)
+  push(section.content)
+  return set.size
+}
+
 const buildSecondary = (section) => {
   const set = new Set()
+  const rawCount = countSecondaryRaw(section)
   const push = (txt) => {
     if (!txt) return
     const clean = String(txt).trim()
@@ -53,7 +72,7 @@ const buildSecondary = (section) => {
     push(fillers[i % fillers.length])
     i += 1
   }
-  return Array.from(set).slice(0, 8)
+  return { list: Array.from(set).slice(0, 8), rawCount }
 }
 
 // 统一知识点数据结构，确保排序/展示一致
@@ -116,6 +135,8 @@ const normalizeSection = (section) => {
     if (!autoSecondary.length && memoryTips.length) autoSecondary.push(...memoryTips.slice(0, 2))
   }
 
+  const secondary = buildSecondary({ ...section, secondaryConclusions: autoSecondary })
+
   return {
     tags: [],
     importance: 3,
@@ -129,7 +150,14 @@ const normalizeSection = (section) => {
     timeline,
     prerequisites,
     memoryTips: memoryTips.length ? memoryTips : autoMemory,
-    secondaryConclusions: buildSecondary({ ...section, secondaryConclusions: autoSecondary }),
+    secondaryRawCount: secondary.rawCount,
+    secondaryConclusions: secondary.list,
+    isRisk:
+      secondary.rawCount < 5 ||
+      !section.frequency ||
+      classicProblems.length === 0 ||
+      (difficulty === 'High' && (section.frequency || 0) >= 8) ||
+      (section.mistakes || []).length > 0,
   }
 }
 
@@ -148,6 +176,7 @@ const KnowledgeSection = () => {
   const [selectedSubcategory, setSelectedSubcategory] = useState('全部子分类')
   const [searchTerm, setSearchTerm] = useState('')
   const [showDiagram, setShowDiagram] = useState(false)
+  const [showRiskOnly, setShowRiskOnly] = useState(false)
   const [page, setPage] = useState(1)
   const pageSize = 10
 
@@ -159,7 +188,14 @@ const KnowledgeSection = () => {
   // 当筛选条件变化时重置分页
   React.useEffect(() => {
     setPage(1)
-  }, [selectedSubject, selectedCategory, selectedSubcategory, searchTerm, showDiagram])
+  }, [
+    selectedSubject,
+    selectedCategory,
+    selectedSubcategory,
+    searchTerm,
+    showDiagram,
+    showRiskOnly,
+  ])
 
   const tooManyForDiagram = useMemo(
     () => (currentSubject?.sections?.length || 0) > 200,
@@ -196,11 +232,17 @@ const KnowledgeSection = () => {
     return ['全部子分类', ...new Set(subs)]
   }, [normalizedSections, selectedCategory])
 
+  const riskCount = useMemo(
+    () => normalizedSections.filter((s) => s.isRisk).length,
+    [normalizedSections]
+  )
+
   // 筛选知识点
   const filteredSections = useMemo(() => {
     if (!normalizedSections.length) return []
 
     return normalizedSections.filter((section) => {
+      if (showRiskOnly && !section.isRisk) return false
       const matchCategory =
         selectedCategory === '全部分类' || section.categoryLabel === selectedCategory
       const matchSubcategory =
@@ -215,7 +257,7 @@ const KnowledgeSection = () => {
 
       return matchCategory && matchSubcategory && matchSearch
     })
-  }, [normalizedSections, selectedCategory, selectedSubcategory, searchTerm])
+  }, [normalizedSections, selectedCategory, selectedSubcategory, searchTerm, showRiskOnly])
 
   // 按频率优先，其次难度（易→难），再按重要度
   const sortedSections = useMemo(() => {
@@ -396,8 +438,25 @@ const KnowledgeSection = () => {
           </div>
         </div>
         {/* View Toggle */}
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-slate-600">共 {sortedSections.length} 个知识点</span>
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <div className="flex items-center gap-3 text-sm text-slate-600">
+            <span>共 {sortedSections.length} 个知识点</span>
+            <span className="text-rose-600 bg-rose-50 border border-rose-200 rounded-full px-2 py-1 text-xs">
+              风险/高频易错 {riskCount}
+            </span>
+            <button
+              onClick={() => setShowRiskOnly((v) => !v)}
+              className={cn(
+                'inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border text-xs transition-all',
+                showRiskOnly
+                  ? 'bg-rose-600 text-white border-rose-600 shadow-sm'
+                  : 'bg-white text-rose-600 border-rose-300 hover:bg-rose-50'
+              )}
+            >
+              <AlertTriangle size={14} />
+              {showRiskOnly ? '显示全部' : '只看风险/易错'}
+            </button>
+          </div>
           {tooManyForDiagram ? (
             <span className="text-xs text-amber-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
               考点数量超过 300，已自动关闭知识图谱，请切换单科查看。
@@ -489,6 +548,16 @@ const KnowledgeCard = ({ section }) => {
                 {section.title}
               </h3>
               <div className="flex gap-2">
+                {section.isRisk && (
+                  <Badge
+                    variant="danger"
+                    size="sm"
+                    className="bg-rose-600 text-white border-rose-600 flex items-center gap-1"
+                  >
+                    <AlertTriangle size={12} />
+                    风险/易错
+                  </Badge>
+                )}
                 {section.source && (
                   <Badge
                     variant="outline"
