@@ -1,5 +1,37 @@
 # Clarified Knowledge Points
-生成时间：2025-12-03T23:28:40.855Z
+生成时间：2025-12-04T00:14:54.433Z
+
+## Math 重点 Top30（按频度排序，出题概率：高/中/低）
+- 1. 无穷小比阶（分类：Calculus / Limits & Continuity；频度=10；概率=高)
+- 2. 拉格朗日中值定理（分类：Calculus / Mean Value Theorems；频度=10；概率=高)
+- 3. 不定积分基本公式（分类：Calculus / Integrals；频度=10；概率=高)
+- 4. 凑微分法 (第一类换元)（分类：Calculus / Integrals；频度=10；概率=高)
+- 5. 分部积分法（分类：Calculus / Integrals；频度=10；概率=高)
+- 6. 矩阵的秩（分类：Linear Algebra / Matrices；频度=10；概率=高)
+- 7. 矩阵相似与对角化（分类：Linear Algebra / Eigenvalues；频度=10；概率=高)
+- 8. 二重积分计算（分类：Calculus / Multivariable Calculus；频度=10；概率=高)
+- 9. 泰勒公式 (Taylor's Formula)（分类：Calculus / Limits & Continuity；频度=10；概率=高)
+- 10. 定积分换元与分部综合（分类：Calculus / Integral；频度=10；概率=高)
+- 11. 特征值、相似与对角化（分类：Linear Algebra / Eigen；频度=10；概率=高)
+- 12. 条件极值与拉格朗日乘子（分类：Calculus / Multivariable；频度=10；概率=高)
+- 13. 泰勒展开求极限与近似（分类：Calculus / Series；频度=10；概率=高)
+- 14. 置信区间套路与枢轴量（分类：Probability / Estimation；频度=10；概率=高)
+- 15. 2024 真题高频结论速览（分类：Exam Summary / Math I；频度=10；概率=高)
+- 16. 牛顿-莱布尼茨公式（分类：Calculus / Integrals；频度=10；概率=高)
+- 17. 换元积分法（分类：Calculus / Integrals；频度=10；概率=高)
+- 18. 2024 真题侧重点（分类：Exam Year / 2024；频度=10；概率=高)
+- 19. 2025 真题趋势预判（分类：Exam Year / 2025；频度=10；概率=高)
+- 20. 高频二级结论与证明思路（20 条）（分类：Toolkit / Secondary Conclusions；频度=10；概率=高)
+- 21. 泰勒公式 (Taylor Formula)（分类：Calculus / Limits & Continuity；频度=9；概率=高)
+- 22. 定积分的几何应用（分类：Calculus / Integrals；频度=9；概率=高)
+- 23. 二次型（分类：Linear Algebra / Quadratic Forms；频度=9；概率=高)
+- 24. 洛必达法则 (L'Hopital's Rule)（分类：Calculus / Derivatives；频度=9；概率=高)
+- 25. 中心极限定理与大数定律应用（分类：Probability / Limit Theorems；频度=9；概率=高)
+- 26. 幂级数收敛半径与求和（分类：Calculus / Series；频度=9；概率=高)
+- 27. 定积分对称性与换元（分类：Calculus / Integral；频度=9；概率=高)
+- 28. 最小多项式与 Jordan 块判定（分类：Linear Algebra / Jordan & Similarity；频度=9；概率=高)
+- 29. 二重积分换元与极坐标（分类：Calculus / Multivariable；频度=9；概率=高)
+- 30. Improper Integrals: Convergence Tests（分类：Calculus / Integral；频度=9；概率=高)
 
 ## Math
 ### Calculus / Limits & Continuity
@@ -1057,6 +1089,38 @@
   - 二级结论：先写参数范围再计算叉积模长。
   - 二级结论：对称曲面可选最简参数避免三角复杂度。
 
+## 计算机408 重点 Top30（按频度排序，出题概率：高/中/低）
+- 1. 2024 真题侧重点（分类：Exam Year / 2024；频度=10；概率=高)
+- 2. 2025 真题趋势预判（分类：Exam Year / 2025；频度=10；概率=高)
+- 3. 高频二级结论与证明思路（20 条）（分类：Toolkit / Secondary Conclusions；频度=10；概率=高)
+- 4. 进程调度算法（分类：Operating Systems / Process Management；频度=9；概率=高)
+- 5. HTTP 协议详解（分类：Computer Networks / Application Layer；频度=9；概率=高)
+- 6. 2022 真题重心（分类：Exam Year / 2022；频度=9；概率=高)
+- 7. 2023 真题脉络（分类：Exam Year / 2023；频度=9；概率=高)
+- 8. TCP 高频考点汇总（OCR 模拟卷）（分类：Computer Networks / Transport Layer；频度=9；概率=高)
+- 9. CPI 计算与气泡（分类：Computer Organization / Pipeline；频度=8；概率=中)
+- 10. 2021 真题高频考点（分类：Exam Year / 2021；频度=8；概率=中)
+- 11. Cache 与 TLB 高频考点（OCR 模拟卷）（分类：Computer Organization / Cache；频度=8；概率=中)
+- 12. 以太网退避与最小帧长（分类：Computer Network / Link；频度=7；概率=中)
+- 13. 装载因子与再散列（分类：Data Structure / Hash；频度=7；概率=中)
+- 14. 排序与查找高频点（OCR 模拟卷）（分类：Data Structures / Search & Sort；频度=7；概率=中)
+- 15. B树与B+树（分类：Data Structures / Search & Sort；频度=6；概率=中)
+- 16. 电子邮件协议（分类：Computer Networks / Application Layer；频度=6；概率=中)
+- 17. 线性表 - 顺序表与链表（分类：Data Structures / Linear Lists；频度=5；概率=低)
+- 18. 栈与队列的应用（分类：Data Structures / Stack & Queue；频度=5；概率=低)
+- 19. 二叉树遍历（分类：Data Structures / Trees；频度=5；概率=低)
+- 20. 线索二叉树（分类：Data Structures / Trees；频度=5；概率=低)
+- 21. 图的存储与遍历（分类：Data Structures / Graphs；频度=5；概率=低)
+- 22. 最小生成树 (MST)（分类：Data Structures / Graphs；频度=5；概率=低)
+- 23. 最短路径（分类：Data Structures / Graphs；频度=5；概率=低)
+- 24. 平衡二叉树 (AVL)（分类：Data Structures / Search & Sort；频度=5；概率=低)
+- 25. 快速排序（分类：Data Structures / Search & Sort；频度=5；概率=低)
+- 26. IEEE 754 浮点数（分类：Computer Organization / Data Representation；频度=5；概率=低)
+- 27. Cache 映射方式（分类：Computer Organization / Memory；频度=5；概率=低)
+- 28. 指令流水线（分类：Computer Organization / CPU；频度=5；概率=低)
+- 29. 进程状态与转换（分类：Operating Systems / Process Management；频度=5；概率=低)
+- 30. 死锁（分类：Operating Systems / Process Management；频度=5；概率=低)
+
 ## 计算机408
 ### Data Structures / Linear Lists
 - **线性表 - 顺序表与链表** (难度: Low, 高频: 5)
@@ -1970,6 +2034,38 @@
   - 二级结论：考试常要求画冲突图并给出着色顺序。
   - 二级结论：若无法着色，说明需要溢出并重新构图。
 
+## 英语一 重点 Top30（按频度排序，出题概率：高/中/低）
+- 1. 主旨与态度题（分类：Reading / Main Idea；频度=10；概率=高)
+- 2. 大作文三段论模板（分类：Writing / Argument；频度=10；概率=高)
+- 3. impose on / subject to / be prone to（分类：Vocabulary / 搭配；频度=10；概率=高)
+- 4. 主题句识别与同义替换（分类：Reading / 主旨定位；频度=10；概率=高)
+- 5. 转折/让步信号与解题（分类：Reading / 逻辑标记；频度=10；概率=高)
+- 6. 2024 英语一真题侧重点（分类：Exam Year / 2024；频度=10；概率=高)
+- 7. 2025 英语一趋势预判（分类：Exam Year / 2025；频度=10；概率=高)
+- 8. 高频二级结论与验证思路（20 条）（分类：Toolkit / Secondary Conclusions；频度=10；概率=高)
+- 9. 长定语/同位语从句拆分翻译（分类：Grammar / Complex Sentences；频度=9；概率=高)
+- 10. 词汇推断与同义改写（分类：Reading / Vocabulary in Context；频度=9；概率=高)
+- 11. bill 不只是账单：法案/鸟嘴（分类：Vocabulary / 熟词僻义；频度=9；概率=高)
+- 12. adapt / adopt / adept（分类：Vocabulary / 混淆词；频度=9；概率=高)
+- 13. 指代词回指与同义替换（分类：Reading / 衔接与指代；频度=9；概率=高)
+- 14. 图表描述句型与衔接（分类：Writing / 图表作文；频度=9；概率=高)
+- 15. 2022 英语一真题重心（分类：Exam Year / 2022；频度=9；概率=高)
+- 16. 连接词与段落衔接（分类：Writing / Cohesion；频度=8；概率=中)
+- 17. 对比与让步结构（分类：Writing / Part B (Essay)；频度=8；概率=中)
+- 18. 时态一致与虚拟混用（分类：Grammar / Tense & Aspect；频度=8；概率=中)
+- 19. 因果/让步/转折高分句模板（分类：Writing / 功能句式；频度=8；概率=中)
+- 20. 同位语从句 vs 定语从句（分类：Grammar / 从句；频度=8；概率=中)
+- 21. table 作动词/名词的不同义（分类：Vocabulary / 熟词僻义；频度=8；概率=中)
+- 22. at odds with / stem from / hinge on（分类：Vocabulary / 搭配；频度=8；概率=中)
+- 23. 独立主格与逻辑主语（分类：Grammar / 非谓语；频度=8；概率=中)
+- 24. decline / descent / downturn 区分（分类：Vocabulary / 转化名词；频度=8；概率=中)
+- 25. 分裂句与强调结构（分类：Writing / 高级句式；频度=8；概率=中)
+- 26. 2021 英语一真题侧重（分类：Exam Year / 2021；频度=8；概率=中)
+- 27. 2023 英语一真题脉络（分类：Exam Year / 2023；频度=8；概率=中)
+- 28. subject to 的真题用法（分类：Vocabulary / 真题例句；频度=7；概率=中)
+- 29. modest / moderate / modesty（分类：Vocabulary / 语气与态度；频度=7；概率=中)
+- 30. 定语从句（分类：Grammar / Clauses；频度=5；概率=低)
+
 ## 英语一
 ### Grammar / Clauses
 - **定语从句** (难度: Medium, 高频: 5)
@@ -2321,6 +2417,38 @@
   - 讲解：科技：innovation, algorithm, automation, data privacy；环保：sustainability, emission, biodiversity；教育：curriculum, literacy；健康：immunity, nutrition。
   - 二级结论：背词时连同搭配，如 reduce carbon emission, ensure data privacy, compulsory education。
   - 二级结论：重点：掌握 高频主题词包（科技/环保/教育/健康） 的定义与典型题。
+
+## 政治 重点 Top30（按频度排序，出题概率：高/中/低）
+- 1. 矛盾普遍性与特殊性（分类：Marxism / Contradiction；频度=10；概率=高)
+- 2. 2025 时政高频主题（分类：Current Affairs / Policy；频度=10；概率=高)
+- 3. 高质量发展与新质生产力（分类：Mao Zhong Te / Economic；频度=10；概率=高)
+- 4. 实践—认识—再实践的循环（分类：马原 / 方法论；频度=10；概率=高)
+- 5. 2024 政治真题侧重点（分类：时政 / 2024；频度=10；概率=高)
+- 6. 2025 政治真题趋势预判（分类：时政 / 2025；频度=10；概率=高)
+- 7. 高频二级结论与论证思路（20 条）（分类：Toolkit / Secondary Conclusions；频度=10；概率=高)
+- 8. 新民主主义革命总路线（分类：Mao Zedong Thought / New Democracy；频度=9；概率=高)
+- 9. 实践与认识的辩证关系（分类：Marxism / Practice & Cognition；频度=9；概率=高)
+- 10. 1945-1949 解放战争关键节点（分类：史纲 / 时间线；频度=9；概率=高)
+- 11. 2022 政治真题重心（分类：时政 / 2022；频度=9；概率=高)
+- 12. 社会主义核心价值观三层次（分类：思修 / 核心价值；频度=9；概率=高)
+- 13. 矛盾普遍性与特殊性统一（分类：马原 / 辩证法；频度=9；概率=高)
+- 14. 共同富裕的内涵与实现路径（分类：毛中特 / 共同富裕；频度=9；概率=高)
+- 15. 遵义会议的转折意义（分类：史纲 / 关键会议；频度=9；概率=高)
+- 16. 肖八选择高频命题点（2026 预测）（分类：Exam Year / 冲刺模拟；频度=9；概率=高)
+- 17. 总体国家安全观（分类：Mao Zhong Te / Strategy；频度=8；概率=中)
+- 18. 洋务/维新/革命三条道路比较（分类：History / Modern China；频度=8；概率=中)
+- 19. 新质生产力与高质量发展（分类：毛中特 / 新质生产力；频度=8；概率=中)
+- 20. 2021 政治真题侧重（分类：时政 / 2021；频度=8；概率=中)
+- 21. 2023 政治真题脉络（分类：时政 / 2023；频度=8；概率=中)
+- 22. 五个特征与本质要求（分类：毛中特 / 中国式现代化；频度=8；概率=中)
+- 23. 改革开放关键时间点（分类：史纲 / 时间线；频度=8；概率=中)
+- 24. 真理的绝对性与相对性（分类：马原 / 认识论；频度=8；概率=中)
+- 25. 当代分析题四步模板（第38题适用）（分类：Exam Summary / 答题模板；频度=8；概率=中)
+- 26. 肖八选择题高频考点（OCR 提取）（分类：Exam Summary / 冲刺模拟；频度=8；概率=中)
+- 27. 中国革命道路与其他选择的比较（分类：史纲 / 道路比较；频度=7；概率=中)
+- 28. 依法治国与依规治党（分类：思修 / 法治；频度=7；概率=中)
+- 29. 2025-2026 时政热点提要（分类：Current Affairs / 时政；频度=7；概率=中)
+- 30. 物质与意识的辩证关系（分类：Ma Yuan / Philosophy；频度=5；概率=低)
 
 ## 政治
 ### Ma Yuan / Philosophy

@@ -59,7 +59,27 @@ lines.push(`# Clarified Knowledge Points`)
 lines.push(`生成时间：${new Date().toISOString()}`)
 lines.push('')
 
+const bucket = (freq = 0) => {
+  if (freq >= 9) return '高'
+  if (freq >= 6) return '中'
+  return '低'
+}
+
 Object.entries(subjects).forEach(([subject, items]) => {
+  // Top 30 focus list
+  lines.push(`## ${subject} 重点 Top30（按频度排序，出题概率：高/中/低）`)
+  const top30 = [...items]
+    .sort((a, b) => (b.frequency || 0) - (a.frequency || 0))
+    .slice(0, 30)
+  top30.forEach((item, idx) => {
+    lines.push(
+      `- ${idx + 1}. ${item.title}（分类：${item.category}${
+        item.subcategory ? ' / ' + item.subcategory : ''
+      }；频度=${item.frequency ?? '—'}；概率=${bucket(item.frequency)})`
+    )
+  })
+  lines.push('')
+
   lines.push(`## ${subject}`)
   const byCat = groupBy(items, (i) => `${i.category} / ${i.subcategory || '未分组'}`)
   Object.entries(byCat).forEach(([cat, arr]) => {
