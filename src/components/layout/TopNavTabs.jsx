@@ -1,9 +1,10 @@
 import React from 'react'
-import { LayoutGrid, BookOpen, Target, Cpu, Sparkles } from 'lucide-react'
+import { LayoutGrid, BookOpen, Target, Cpu, Sparkles, Flame } from 'lucide-react'
 import { knowledgeBase } from '@/data/resources'
 
 const pages = [
   { id: 'home', label: '主页', icon: LayoutGrid },
+  { id: 'hot', label: '高频考点', icon: Flame },
   { id: 'knowledge', label: '知识库', icon: BookOpen },
   { id: 'plan', label: '冲刺计划', icon: Target },
   { id: 'workbench', label: 'AI 工作台', icon: Cpu },

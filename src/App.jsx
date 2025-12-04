@@ -10,11 +10,12 @@ import { resources } from '@/data/resources'
 import { useAppStore } from '@/store/useAppStore'
 import HomePage from '@/pages/HomePage'
 
-const PAGE_IDS = ['home', 'knowledge', 'plan', 'workbench']
+const PAGE_IDS = ['home', 'hot', 'knowledge', 'plan', 'workbench']
 const DEFAULT_PAGE = 'home'
 
 // 懒加载非关键组件
 const KnowledgePage = lazy(() => import('@/pages/KnowledgePage'))
+const HotExamPage = lazy(() => import('@/pages/HotExamPage'))
 const PlanPage = lazy(() => import('@/pages/PlanPage'))
 const WorkbenchPage = lazy(() => import('@/pages/WorkbenchPage'))
 const AIChat = lazy(() => import('@/components/features/AIChat'))
@@ -55,6 +56,7 @@ function App() {
         shortcut: 'Ctrl/Cmd + O',
       },
       { id: 'tab-home', label: '切换到 主页', action: () => setActivePage('home') },
+      { id: 'tab-hot', label: '切换到 高频考点', action: () => setActivePage('hot') },
       { id: 'tab-knowledge', label: '切换到 知识库', action: () => setActivePage('knowledge') },
       { id: 'tab-plan', label: '切换到 冲刺计划', action: () => setActivePage('plan') },
       { id: 'tab-workbench', label: '切换到 AI 工作台', action: () => setActivePage('workbench') },
@@ -83,9 +85,15 @@ function App() {
         e.preventDefault()
         setCodexOpen(true)
       }
-      if ((e.metaKey || e.ctrlKey) && ['1', '2', '3', '4'].includes(e.key)) {
+      if ((e.metaKey || e.ctrlKey) && ['1', '2', '3', '4', '5'].includes(e.key)) {
         e.preventDefault()
-        const map = { 1: PAGE_IDS[0], 2: PAGE_IDS[1], 3: PAGE_IDS[2], 4: PAGE_IDS[3] }
+        const map = {
+          1: PAGE_IDS[0],
+          2: PAGE_IDS[1],
+          3: PAGE_IDS[2],
+          4: PAGE_IDS[3],
+          5: PAGE_IDS[4],
+        }
         setActivePage(map[e.key])
       }
     }
@@ -113,6 +121,12 @@ function App() {
         return (
           <Suspense fallback={<Loading />}>
             <KnowledgePage />
+          </Suspense>
+        )
+      case 'hot':
+        return (
+          <Suspense fallback={<Loading />}>
+            <HotExamPage />
           </Suspense>
         )
       case 'plan':

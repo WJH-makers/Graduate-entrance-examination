@@ -7,8 +7,10 @@ import { ocrTop } from '@/data/ocrTop'
 import { ocrKeywords } from '@/data/ocrKeywords'
 import { pkuAiRules } from '@/data/pkuAiRules'
 import { beijingMarking } from '@/data/beijingMarking'
+import { useAppStore } from '@/store/useAppStore'
 
 const HotExamSection = () => {
+  const { setActivePage } = useAppStore()
   const [liveLinks, setLiveLinks] = useState(null)
   const [showAllTimeline, setShowAllTimeline] = useState(false)
   const [showAllLinks, setShowAllLinks] = useState(false)
@@ -37,8 +39,17 @@ const HotExamSection = () => {
       <SectionShell
         title="今年高频考点 & 关键节点"
         description="提炼三类信息：预测题型、时间线/权威信息、OCR 高频与复试要点"
+        actions={
+          <button
+            type="button"
+            onClick={() => setActivePage('hot')}
+            className="text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-cyan-500 to-amber-400 text-white shadow-sm hover:shadow-md transition"
+          >
+            全屏查看
+          </button>
+        }
       >
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-2 auto-rows-fr">
           <Card className="border-slate-200 bg-white shadow-lg shadow-cyan-100/50 flex flex-col p-4 md:p-5 h-full">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2 text-blue-600">
@@ -72,7 +83,7 @@ const HotExamSection = () => {
               <CalendarDays size={18} />
               <span className="font-semibold">关键时间线</span>
             </div>
-            <div className="space-y-2 text-sm text-slate-700 leading-relaxed max-h-56 overflow-auto pr-1">
+            <div className="space-y-2 text-sm text-slate-700 leading-relaxed max-h-64 sm:max-h-72 overflow-auto pr-1 min-w-0">
               {(showAllTimeline ? timeline : timeline.slice(0, 5)).map((item) => (
                 <div key={item.date} className="flex justify-between gap-3">
                   <span className="font-mono text-[11px] text-slate-500 w-24 shrink-0">
@@ -101,7 +112,7 @@ const HotExamSection = () => {
               <LinkIcon size={18} />
               <span className="font-semibold">近三个月权威信息</span>
             </div>
-            <div className="space-y-2 text-sm leading-relaxed max-h-56 overflow-auto pr-1">
+            <div className="space-y-2 text-sm leading-relaxed max-h-64 sm:max-h-72 overflow-auto pr-1 min-w-0">
               {(showAllLinks ? liveLinks || hotLinks : (liveLinks || hotLinks).slice(0, 6)).map(
                 (link, idx) => (
                   <div
