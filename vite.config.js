@@ -1,11 +1,17 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'node:path';
 
 // https://vite.dev/config/
 export default defineConfig({
   // 采用相对资源路径，避免直接打开 dist/index.html 时空白
   base: './',
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
     // 启用生产环境优化（使用内置 esbuild，避免额外 terser 依赖）
     minify: 'esbuild',

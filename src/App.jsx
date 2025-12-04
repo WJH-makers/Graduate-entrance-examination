@@ -1,23 +1,23 @@
 import React, { useMemo, lazy, Suspense, useEffect, useRef } from 'react'
-import CodexPanel from './components/features/CodexPanel'
-import OptimizeButton from './components/features/OptimizeButton'
-import CommandPalette from './components/features/CommandPalette'
-import ParticleBackground from './components/features/ParticleBackground'
-import CursorGlow from './components/features/CursorGlow'
-import TopNavTabs from './components/layout/TopNavTabs'
-import FloatingTools from './components/features/FloatingTools'
-import { resources } from './data/resources'
-import { useAppStore } from './store/useAppStore'
-import HomePage from './pages/HomePage'
+import CodexPanel from '@/components/features/CodexPanel'
+import OptimizeButton from '@/components/features/OptimizeButton'
+import CommandPalette from '@/components/features/CommandPalette'
+import ParticleBackground from '@/components/features/ParticleBackground'
+import CursorGlow from '@/components/features/CursorGlow'
+import TopNavTabs from '@/components/layout/TopNavTabs'
+import FloatingTools from '@/components/features/FloatingTools'
+import { resources } from '@/data/resources'
+import { useAppStore } from '@/store/useAppStore'
+import HomePage from '@/pages/HomePage'
 
 const PAGE_IDS = ['home', 'knowledge', 'plan', 'workbench']
 const DEFAULT_PAGE = 'home'
 
 // 懒加载非关键组件
-const StudyPlan = lazy(() => import('./components/features/StudyPlan'))
-const KnowledgeSection = lazy(() => import('./components/features/KnowledgeSection'))
-const AIChat = lazy(() => import('./components/features/AIChat'))
-const AIWorkbench = lazy(() => import('./components/features/AIWorkbench'))
+const KnowledgePage = lazy(() => import('@/pages/KnowledgePage'))
+const PlanPage = lazy(() => import('@/pages/PlanPage'))
+const WorkbenchPage = lazy(() => import('@/pages/WorkbenchPage'))
+const AIChat = lazy(() => import('@/components/features/AIChat'))
 
 function App() {
   const {
@@ -112,25 +112,19 @@ function App() {
       case 'knowledge':
         return (
           <Suspense fallback={<Loading />}>
-            <div id="knowledge">
-              <KnowledgeSection />
-            </div>
+            <KnowledgePage />
           </Suspense>
         )
       case 'plan':
         return (
           <Suspense fallback={<Loading />}>
-            <div id="study-plan">
-              <StudyPlan />
-            </div>
+            <PlanPage />
           </Suspense>
         )
       case 'workbench':
         return (
           <Suspense fallback={<Loading />}>
-            <div id="workbench">
-              <AIWorkbench />
-            </div>
+            <WorkbenchPage />
           </Suspense>
         )
       case 'home':

@@ -18,7 +18,8 @@
     "visualize": "vite build --report",
     "prepare": "husky install",
     "generate:knowledge": "node scripts/generate-knowledge.mjs",
-    "clarify:knowledge": "node scripts/clarify-knowledge.mjs"
+    "clarify:knowledge": "node scripts/clarify-knowledge.mjs",
+    "test:smoke": "npm run build && node scripts/smoke-test.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.90.11",
