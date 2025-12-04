@@ -22,6 +22,9 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Audit knowledge dataset
+        run: npm run audit:knowledge
+
       - name: Lint
         run: npm run lint
 
@@ -30,6 +33,9 @@ jobs:
 
       - name: Generate knowledge sheets
         run: npm run generate:knowledge
+
+      - name: Generate coverage report
+        run: npm run report:knowledge
 
       - name: Smoke test build artifacts
         run: npm run test:smoke
@@ -41,6 +47,7 @@ jobs:
           path: |
             public/knowledge_summary.md
             public/knowledge_shortlist.md
+            docs/KNOWLEDGE_REPORT.md
 
   e2e:
     runs-on: ubuntu-latest

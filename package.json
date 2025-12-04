@@ -9,7 +9,6 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "crawl:news": "node scripts/crawl-news.js",
-    "audit:knowledge": "node scripts/audit-knowledge.js",
     "format": "prettier -w \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
     "stylelint": "stylelint \"src/**/*.{css,pcss}\"",
     "preview:start": "npm run preview -- --host 127.0.0.1 --port 4173",
@@ -19,6 +18,8 @@
     "prepare": "husky install",
     "generate:knowledge": "node scripts/generate-knowledge.mjs",
     "clarify:knowledge": "node scripts/clarify-knowledge.mjs",
+    "audit:knowledge": "node scripts/audit-knowledge.js",
+    "report:knowledge": "node scripts/knowledge-report.mjs",
     "test:smoke": "npm run build && node scripts/smoke-test.mjs",
     "test:e2e": "npm run build && start-server-and-test preview:start http://127.0.0.1:4173 \"playwright test --config tests/playwright.config.js\"",
     "serve:proxy": "node server/index.js"

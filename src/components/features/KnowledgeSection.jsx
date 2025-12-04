@@ -26,6 +26,36 @@ import { knowledgeBase } from '@/data/resources'
 import { cn } from '@/utils/cn'
 import { translateLabel as t } from '@/constants/labels'
 
+const buildSecondary = (section) => {
+  const set = new Set()
+  const push = (txt) => {
+    if (!txt) return
+    const clean = String(txt).trim()
+    if (clean) set.add(clean)
+  }
+  ;(section.secondaryConclusions || []).forEach(push)
+  ;(section.examTips || []).forEach(push)
+  ;(section.memoryTips || []).forEach(push)
+  ;(section.triggers || []).forEach((t) => push(`出现【${t}】→ 回忆本考点`))
+  ;(section.mistakes || []).forEach((m) => push(`避免误区：${m}`))
+  ;(section.classicProblems || []).forEach((p) => push(`例题：${p.description || p.title || ''}`))
+  push(section.detailedAnalysis)
+  push(section.content)
+  const fillers = [
+    `必背定义：${section.title}`,
+    '常考框架：定义→条件→结论→局限性。',
+    '易混点：和同章概念对比找差异。',
+    '应试模板：结论-理由-限制三句闭环。',
+    '高频错误：先审条件/符号后代公式。',
+  ]
+  let i = 0
+  while (set.size < 5) {
+    push(fillers[i % fillers.length])
+    i += 1
+  }
+  return Array.from(set).slice(0, 8)
+}
+
 // 统一知识点数据结构，确保排序/展示一致
 const normalizeSection = (section) => {
   const classicProblems =
@@ -99,9 +129,7 @@ const normalizeSection = (section) => {
     timeline,
     prerequisites,
     memoryTips: memoryTips.length ? memoryTips : autoMemory,
-    secondaryConclusions: section.secondaryConclusions?.length
-      ? section.secondaryConclusions
-      : autoSecondary,
+    secondaryConclusions: buildSecondary({ ...section, secondaryConclusions: autoSecondary }),
   }
 }
 
