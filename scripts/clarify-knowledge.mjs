@@ -24,16 +24,25 @@ const ensureSecondary = (item) => {
   ;(item.memoryTips || []).forEach(push)
   ;(item.triggers || []).forEach((t) => push(`看到【${t}】应联想本考点。`))
   ;(item.mistakes || []).forEach((m) => push(`避免误区：${m}`))
+  ;(item.classicProblems || []).forEach((p) => push(`例题提示：${p.description || p.title || ''}`))
+  push(item.detailedAnalysis)
+  push(item.content)
 
-  // 保底给 2 条
+  // 保底至少 5 条
   if (set.size === 0 && item.content) push(item.content)
-  if (set.size < 2 && item.classicProblems?.length) {
-    push(item.classicProblems[0].description)
+  const fillers = [
+    `必背定义：${item.title}`,
+    `常考公式/框架：结合本章节核心公式或逻辑链条作答。`,
+    `易混点：与同类概念区分后写出关键差异。`,
+    `套路：先写结论→理由→例证→收束，应对选择/简答/大题。`,
+    `应试：书写 3-5 句闭环，注意因果/条件/对比衔接词。`,
+  ]
+  let i = 0
+  while (set.size < 5) {
+    push(fillers[i % fillers.length])
+    i++
   }
-  while (set.size < 2) {
-    push(`重点：掌握 ${item.title} 的定义与典型题。`)
-  }
-  return Array.from(set).slice(0, 6)
+  return Array.from(set).slice(0, 8)
 }
 
 const explain = (item) => {
